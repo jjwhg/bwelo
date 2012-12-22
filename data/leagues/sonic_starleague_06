@@ -1,0 +1,229 @@
+NAME Sonic's BJ Starleague Season 6
+
+PLAYER ample
+PLAYER anytime
+PLAYER apink
+PLAYER backho
+PLAYER beast
+PLAYER bigtiger
+PLAYER candy
+PLAYER casy
+PLAYER cola
+PLAYER eagle
+PLAYER hint
+PLAYER hiya
+PLAYER icarus
+PLAYER lyh
+PLAYER maejang
+PLAYER mahell
+PLAYER mong
+PLAYER mydream
+PLAYER myungsik
+PLAYER neo.g
+PLAYER olympus
+PLAYER progamer
+PLAYER pusan
+PLAYER robbery
+PLAYER satang
+PLAYER seakh
+PLAYER sexy
+PLAYER sky
+PLAYER smile
+PLAYER starcue
+PLAYER yoo
+PLAYER zergman
+
+ROUND 32
+
+GROUP A
+GAME 1330009200 fighting_spirit candy > anytime
+GAME 1330009201 electric_circuit candy > anytime
+GAME 1330009202 fighting_spirit casy < starcue
+GAME 1330009203 electric_circuit casy > starcue
+GAME 1330009204 jade casy > starcue
+GAME 1330009205 fighting_spirit candy < casy
+GAME 1330009206 electric_circiut candy < casy
+GAME 1330009207 fighting_spirit anytime > starcue
+GAME 1330009208 electric_circuit anytime > starcue
+GAME 1330009209 circuit_breaker anytime > candy
+GAME 1330009210 bloody_ridge anytime < candy
+GAME 1330009211 fighting_spirit anytime > candy
+
+GROUP B
+GAME 1330009212 circuit_breaker maejang > hint
+GAME 1330009213 bloody_ridge maejang > hint
+GAME 1330009214 circuit_breaker hiya > beast
+GAME 1330009215 bloody_ridge hiya > beast
+GAME 1330009216 circuit_breaker hiya > maejang
+GAME 1330009217 bloody_ridge hiya > maejang
+GAME 1330009218 circuit_breaker hint < beast
+GAME 1330009219 bloody_ridge hint < beast
+GAME 1330009220 circuit_breaker maejang > beast
+GAME 1330009221 bloody_ridge maejang < beast
+GAME 1330009222 fighting_spirit maejang < beast
+
+GROUP C
+GAME 1330009320 circuit_breaker icarus > apink
+GAME 1330009321 bloody_ridge icarus > apink
+GAME 1330009323 circuit_breaker neo.g > lyh
+GAME 1330009324 bloody_ridge neo.g > lyh
+GAME 1330009326 circuit_breaker icarus > neo.g
+GAME 1330009329 circuit_breaker lyh > apink
+GAME 1330009310 bloody_ridge lyh > apink
+GAME 1330009312 circuit_breaker lyh > neo.g
+
+GROUP D
+GAME 1330009420 circuit_breaker pusan > yoo
+GAME 1330009421 bloody_ridge pusan > yoo
+GAME 1330009423 circuit_breaker sexy > cola
+GAME 1330009424 bloody_ridge sexy > cola
+GAME 1330009426 circuit_breaker pusan < sexy
+GAME 1330009427 bloody_ridge pusan > sexy
+GAME 1330009428 fighting_spirit pusan > sexy
+GAME 1330009429 circuit_breaker cola > yoo
+GAME 1330009410 bloody_ridge cola > yoo
+GAME 1330009412 circuit_breaker cola < sexy
+GAME 1330009413 bloody_ridge cola > sexy
+GAME 1330009414 fighting_spirit cola < sexy
+
+GROUP E
+GAME 1330009520 circuit_breaker ample > mahell
+GAME 1330009521 bloody_ridge ample > mahell
+GAME 1330009523 circuit_breaker mong > myungsik
+GAME 1330009524 bloody_ridge mong > myungsik
+GAME 1330009526 circuit_breaker ample > mong
+GAME 1330009527 bloody_ridge ample > mong
+GAME 1330009529 circuit_breaker mahell > myungsik
+GAME 1330009510 bloody_ridge mahell > myungsik
+GAME 1330009512 circuit_breaker mahell < mong
+GAME 1330009513 bloody_ridge mahell < mong
+
+GROUP F
+GAME 1330009620 circuit_breaker sky > bigtiger
+GAME 1330009621 bloody_ridge sky > bigtiger
+GAME 1330009623 circuit_breaker progamer < eagle
+GAME 1330009624 bloody_ridge progamer > eagle
+GAME 1330009625 fighting_spirit progamer > eagle
+GAME 1330009626 circuit_breaker sky > progamer
+GAME 1330009627 bloody_ridge sky < progamer
+GAME 1330009628 fighting_spirit sky < progamer
+GAME 1330009629 circuit_breaker bigtiger > eagle
+GAME 1330009610 bloody_ridge bigtiger > eagle
+GAME 1330009612 circuit_breaker bigtiger < sky
+GAME 1330009613 bloody_ridge bigtiger > sky
+GAME 1330009614 fighting_spirit bigtiger < sky
+
+GROUP G
+GAME 1330009720 circuit_breaker smile > seakh
+GAME 1330009721 bloody_ridge smile > seakh
+GAME 1330009723 circuit_breaker backho > satang
+GAME 1330009724 bloody_ridge backho < satang
+GAME 1330009725 fighting_spirit backho > satang
+GAME 1330009726 circuit_breaker smile > backho
+GAME 1330009727 bloody_ridge smile < backho
+GAME 1330009728 fighting_spirit smile > backho
+GAME 1330009729 circuit_breaker satang < seakh
+GAME 1330009710 bloody_ridge satang < seakh
+GAME 1330009712 circuit_breaker backho > seakh
+GAME 1330009713 bloody_ridge backho > seakh
+
+GROUP H
+GAME 1330009820 circuit_breaker zergman < robbery
+GAME 1330009821 bloody_ridge zergman > robbery
+GAME 1330009822 fighting_spirit zergman > robbery
+GAME 1330009823 circuit_breaker mydream < olympus
+GAME 1330009824 bloody_ridge mydream > olympus
+GAME 1330009825 fighting_spirit mydream > olympus
+GAME 1330009826 circuit_breaker zergman > mydream
+GAME 1330009827 bloody_ridge zergman < mydream
+GAME 1330009828 fighting_spirit zergman < mydream
+GAME 1330009829 circuit_breaker robbery > olympus
+GAME 1330009810 bloody_ridge robbery < olympus
+GAME 1330009811 fighting_spirit robbery < olympus
+GAME 1330009812 circuit_breaker zergman > olympus
+GAME 1330009813 bloody_ridge zergman < olympus
+GAME 1330009814 fighting_spirit zergman > olympus
+
+ROUND 16
+
+GROUP A
+GAME 1330010100 jade hiya > pusan
+GAME 1330010101 electric_circuit hiya > pusan
+GAME 1330010104 jade casy > mydream
+GAME 1330010105 electric_circuit casy < mydream
+GAME 1330010106 fighting_spirit casy > mydream
+GAME 1330010107 jade hiya < casy
+GAME 1330010108 electric_circuit hiya > casy
+GAME 1330010109 fighting_spirit hiya > casy
+GAME 1330010110 jade pusan > mydream
+GAME 1330010111 electric_circuit pusan > mydream
+GAME 1330010112 jade pusan > casy
+GAME 1330010113 electric_circuit pusan > casy
+
+GROUP B
+GAME 1330010200 jade anytime > sexy
+GAME 1330010201 electric_circuit anytime > sexy
+GAME 1330010204 jade beast > ample
+GAME 1330010205 electric_circuit beast > ample
+GAME 1330010207 jade anytime < ample
+GAME 1330010208 electric_circuit anytime > ample
+GAME 1330010209 fighting_spirit anytime < ample
+GAME 1330010210 jade beast > sexy
+GAME 1330010211 electric_circuit beast < sexy
+GAME 1330010212 fighting_spirit beast < sexy
+GAME 1330010212 jade anytime < sexy
+GAME 1330010213 electric_circuit anytime > sexy
+GAME 1330010214 fighting_spirit anytime > sexy
+
+GROUP C
+GAME 1330010300 jade mong > zergman
+GAME 1330010301 electric_circuit mong > zergman
+GAME 1330010304 jade backho < icarus
+GAME 1330010305 electric_circuit backho < icarus
+GAME 1330010307 jade mong < icarus
+GAME 1330010308 electric_circuit mong > icarus
+GAME 1330010309 fighting_spirit mong < icarus
+GAME 1330010310 jade zergman > backho
+GAME 1330010311 electric_circuit zergman > backho
+GAME 1330010312 jade mong > zergman
+GAME 1330010313 electric_circuit mong > zergman
+
+GROUP D
+GAME 1330010400 jade progamer > smile
+GAME 1330010401 electric_circuit progamer > smile
+GAME 1330010404 jade sky > lyh
+GAME 1330010405 electric_circuit sky > lyh
+GAME 1330010407 jade sky > progamer
+GAME 1330010408 electric_circuit sky > progamer
+GAME 1330010410 jade smile < lyh
+GAME 1330010412 jade smile > progamer
+GAME 1330010413 electric_circuit smile < progamer
+GAME 1330010414 fighting_spirit smile > progamer
+
+ROUND 8
+GAME 1330020000 electric_circuit hiya > mong
+GAME 1330020001 fighting_siprit hiya > mong
+GAME 1330020002 jade hiya > mong
+GAME 1330020010 electric_circuit ample < smile
+GAME 1330020011 fighting_siprit ample > smile
+GAME 1330020012 jade ample < smile
+GAME 1330020013 sniper_ridge ample > smile
+GAME 1330020014 outlier ample > smile
+GAME 1330020020 electric_circuit icarus < pusan
+GAME 1330020021 fighting_siprit icarus < pusan
+GAME 1330020022 jade icarus > pusan
+GAME 1330020023 sniper_ridge icarus < pusan
+GAME 1330020024 outlier sky < anytime
+GAME 1330020030 electric_circuit sky > anytime
+GAME 1330020031 fighting_siprit sky > anytime
+GAME 1330020032 jade sky > anytime
+GAME 1330020033 sniper_ridge sky > anytime
+
+ROUND 4
+GAME 1330020100 unknown hiya > ample
+GAME 1330020101 unknown pusan < sky
+GAME 1330020110 unknown hiya > sky
+GAME 1330020111 unknown hiya < sky
+GAME 1330020112 unknown hiya < sky
+GAME 1330020113 unknown hiya < sky
+GAME 1330020114 unknown hiya < sky
