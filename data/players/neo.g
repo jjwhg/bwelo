@@ -1,2 +1,2 @@
-NAME Neo.G_Neo.G
+ID Neo.G_Neo.G
 RACE Zerg
