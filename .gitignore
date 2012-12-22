@@ -1,0 +1,10 @@
+/bin/
+/obj/
+
+/html
+
+/Configfiles/local
+/Configfile.local
+Makefile*
+
+*~

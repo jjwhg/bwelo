@@ -1,0 +1,17 @@
+LANGUAGES   += c
+COMPILEOPTS += -Wall
+COMPILEOPTS += -Werror
+COMPILEOPTS += -Wextra
+COMPILEOPTS += -ansi
+
+LANGUAGES   += c
+COMPILEOPTS += -DINDIR=\"data\"
+COMPILEOPTS += -DOUTDIR=\"html\"
+
+LANGUAGES   += c
+LINKOPTS    += `ppkg-config --have TALLOC talloc --libs`
+COMPILEOPTS += `ppkg-config --have TALLOC talloc --cflags`
+
+BINARIES    += generate_html
+LINKOPTS    += -lm
+SOURCES     += main.c

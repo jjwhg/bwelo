@@ -1,0 +1,7 @@
+#!/bin/bash
+
+mkdir -p bin
+gcc $(find src -iname "*.c") -o bin/generate_html \
+    $(pkg-config talloc --libs) $(pkg-config talloc --cflags) \
+    -DINDIR=\"data\" -DOUTDIR=\"html\" \
+    -lm
