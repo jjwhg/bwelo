@@ -1,0 +1,8 @@
+* Install the dependencies: talloc and gcc.
+
+* Build the code by running "./ubuild".
+
+* Run "./bin/generate_html" to generate the HTML output.
+
+* The output ends up in "./html/" as HTML files.  Use your web browser
+  to view them.
