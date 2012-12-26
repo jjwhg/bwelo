@@ -26,8 +26,14 @@
  * every game played during the course of that league. */
 struct league;
 
+#include "game_list.h"
+
 /* Reads a league's information from a file, setting the remaining
  * information to the default values. */
 struct league *league_read_file(void *c, const char *filename);
+
+/* Returns an iterator that iterates through every game in this league
+ * in chronological order. */
+struct game_list_iterator *league_game_iterator(struct league *l, void *c);
 
 #endif

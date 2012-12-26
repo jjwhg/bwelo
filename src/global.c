@@ -19,4 +19,6 @@
  * along with bwelo.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-struct player_list *global_player_list;
+#include <stddef.h>
+
+struct player_list *global_player_list = NULL;

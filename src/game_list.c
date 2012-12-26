@@ -41,6 +41,12 @@ struct game_list
     struct game_list_node *tail;
 };
 
+/* Allows for iteration along a list of games. */
+struct game_list_iterator
+{
+    struct game_list_node *cur;
+};
+
 /***********************************************************************
  * Extern Methods                                                      *
  ***********************************************************************/
@@ -55,7 +61,7 @@ struct game_list *game_list_new(void *ctx)
     gl->head = NULL;
     gl->tail = NULL;
 
-    return NULL;
+    return gl;
 }
 
 int game_list_add(struct game_list *gl, struct game *g)
@@ -83,4 +89,34 @@ int game_list_add(struct game_list *gl, struct game *g)
     gl->tail->next = new;
     gl->tail = new;
     return 0;
+}
+
+struct game_list_iterator *game_list_iterator_new(void *c,
+                                                  struct game_list *gl)
+{
+    struct game_list_iterator *gli;
+
+    gli = talloc(c, struct game_list_iterator);
+    if (gli == NULL)
+        return NULL;
+
+    gli->cur = gl->head;
+
+    return gli;
+}
+
+struct game *game_list_iterator_cur(struct game_list_iterator *gli)
+{
+    if (gli->cur == NULL)
+        return NULL;
+
+    return gli->cur->data;
+}
+
+void game_list_iterator_next(struct game_list_iterator *gli)
+{
+    if (gli->cur == NULL)
+        return;
+
+    gli->cur = gli->cur->next;
 }

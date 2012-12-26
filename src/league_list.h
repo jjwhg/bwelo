@@ -26,6 +26,7 @@
 struct league_list;
 
 #include "league.h"
+#include "game.h"
 
 /* Creates a new list of leagues by reading a directory full of league
  * files.  Every file in the directory should coorespond to a single
@@ -34,5 +35,9 @@ struct league_list *league_list_new(void *ctx, const char *indir);
 
 /* Adds a league to the given list of leagues.  Returns 0 on success. */
 int league_list_add(struct league_list *ll, struct league *league);
+
+/* Walks through every game that's been played in chronological order. */
+int league_list_each_game(struct league_list *ll,
+                          int (*iter) (struct game *, void *), void *);
 
 #endif

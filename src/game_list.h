@@ -27,6 +27,9 @@ struct game_list;
 #include "game.h"
 #include <stdint.h>
 
+/* Allows for iteration along a list of games. */
+struct game_list_iterator;
+
 /* Creates an empty list of games */
 struct game_list *game_list_new(void *c);
 
@@ -34,5 +37,16 @@ struct game_list *game_list_new(void *c);
  * given game is newer than the newest game in the list, throwing an
  * error if it's not.  Returns 0 on success. */
 int game_list_add(struct game_list *gl, struct game *g);
+
+/* Creates a new game list iterator that points to the start of the list. */
+struct game_list_iterator *game_list_iterator_new(void *c,
+                                                  struct game_list *gl);
+
+/* Returns the current (or NULL, if no current) element in the game
+ * list this iterator is pointing to. */
+struct game *game_list_iterator_cur(struct game_list_iterator *gli);
+
+/* Moves the iterator to the next item. */
+void game_list_iterator_next(struct game_list_iterator *gli);
 
 #endif

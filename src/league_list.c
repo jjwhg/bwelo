@@ -90,7 +90,10 @@ struct league_list *league_list_new(void *context, const char *indir)
 
         /* Adds the league to this list. */
         if (league_list_add(ll, league) != 0)
+        {
+            fprintf(stderr, "Failed to read league '%s'\n", league_name);
             goto failure;
+        }
     }
 
     TALLOC_FREE(tcxt);
@@ -114,5 +117,98 @@ int league_list_add(struct league_list *ll, struct league *league)
     new->next = ll->head;
     new->data = talloc_reference(new, league);
     ll->head = new;
+    return 0;
+}
+
+int league_list_each_game(struct league_list *ll,
+                          int (*iter) (struct game *, void *), void *data)
+{
+    size_t league_count;
+    void *ctx;
+    struct game_list_iterator **iters;
+
+    ctx = talloc_new(ll);
+    if (ctx == NULL)
+        return -1;
+
+    /* Count the number of leagues in this list */
+    {
+        struct league_list_node *cur;
+
+        league_count = 0;
+        cur = ll->head;
+        while (cur != NULL)
+        {
+            league_count++;
+            cur = cur->next;
+        }
+    }
+
+    /* Create a new game_list_iterator for every league */
+    iters = talloc_array(ctx, struct game_list_iterator *, league_count);
+    {
+        struct league_list_node *cur;
+        size_t i;
+
+        i = 0;
+        cur = ll->head;
+        while (cur != NULL)
+        {
+            iters[i] = league_game_iterator(cur->data, iters);
+            i++;
+            cur = cur->next;
+        }
+    }
+
+    /* Sorts the games from different legaues into a total ordering */
+    {
+        struct game *game;
+        struct game_list_iterator *game_iter;
+
+        do
+        {
+            size_t i;
+
+            /* Start out without having had found a game during this
+             * iteration -- this is how we break the loop */
+            game = NULL;
+
+            /* Find the oldest remaining game. */
+            for (i = 0; i < league_count; i++)
+            {
+                struct game *ngame;
+
+                /* Look at the game suggested by the given league */
+                ngame = game_list_iterator_cur(iters[i]);
+                if (ngame == NULL)
+                    continue;
+
+                /* If the current league's game is older than the game
+                 * we would otherwise spit out, then use the older
+                 * game */
+                if ((game == NULL) || (game_compare_time(game, ngame) > 0))
+                {
+                    game = ngame;
+                    game_iter = iters[i];
+                }
+            }
+
+            /* If any game was found then pass it back to the user and
+             * remove it from consideration */
+            if (game != NULL)
+            {
+                int ret;
+
+                if ((ret = iter(game, data)) != 0)
+                {
+                    TALLOC_FREE(ctx);
+                    return ret;
+                }
+                game_list_iterator_next(game_iter);
+            }
+        } while (game != NULL);
+    }
+
+    TALLOC_FREE(ctx);
     return 0;
 }

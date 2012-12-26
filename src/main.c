@@ -31,6 +31,7 @@
  * Static Method Headers                                               *
  ***********************************************************************/
 static int print_elo(struct player *player, void *unused);
+static int update_elo(struct game *game, void *unused);
 
 /***********************************************************************
  * Extern Methods                                                      *
@@ -61,7 +62,10 @@ int main(int argc, char **argv)
     global_player_list = player_list_new(root_context, INDIR "/players");
     league_list = league_list_new(root_context, INDIR "/leagues");
 
-    /* List every player's Elo rating */
+    /* Generates each player's Elo rating */
+    league_list_each_game(league_list, &update_elo, NULL);
+
+    /* List every player's Elo rating to stdout */
     player_list_each(global_player_list, &print_elo, NULL);
 
     /* Open up a new HTML generator */
@@ -81,5 +85,26 @@ int print_elo(struct player *player, void *uu __attribute__ ((unused)))
 {
     printf("%4d (%2d-%2d) %s\n", (int)player_elo(player),
            player_wins(player), player_losses(player), player_id(player));
+    return 0;
+}
+
+int update_elo(struct game *game, void *uu __attribute__ ((unused)))
+{
+    const char *winner_key, *loser_key;
+    struct player *winner, *loser;
+
+    winner_key = game_winner_key(game);
+    loser_key = game_loser_key(game);
+    if (winner_key == NULL || loser_key == NULL)
+        return -1;
+
+    winner = player_list_get(global_player_list, winner_key);
+    loser = player_list_get(global_player_list, loser_key);
+    if (winner == NULL || loser == NULL)
+        return -1;
+
+    if (player_win(winner, loser) != 0)
+        return -1;
+
     return 0;
 }

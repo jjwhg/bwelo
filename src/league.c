@@ -42,6 +42,9 @@ struct league
 
     /* Lists every player in this league. */
     struct player_list *players;
+
+    /* Lists every game played during this league. */
+    struct game_list *games;
 };
 
 /***********************************************************************
@@ -81,6 +84,7 @@ struct league *league_read_file(void *c, const char *filename)
     group = NULL;
     l->name = NULL;
     l->players = player_list_new(l, NULL);
+    l->games = game_list_new(l);
 
     /* Reads the input file. */
     lf = fopen(filename, "r");
@@ -138,9 +142,13 @@ struct league *league_read_file(void *c, const char *filename)
             if (winner == NULL || loser == NULL)
                 goto error;
 
-            if (player_win(winner, loser) != 0)
-                goto error;
+            game_list_add(l->games, game);
         }
+        else if (strcmp(buf, "") == 0)
+        {
+        }
+        else
+            goto error;
 
         line_number++;
     }
@@ -159,6 +167,11 @@ struct league *league_read_file(void *c, const char *filename)
     TALLOC_FREE(tmp);
     TALLOC_FREE(l);
     return NULL;
+}
+
+struct game_list_iterator *league_game_iterator(struct league *l, void *c)
+{
+    return game_list_iterator_new(c, l->games);
 }
 
 /***********************************************************************
