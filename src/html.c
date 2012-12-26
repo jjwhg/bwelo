@@ -28,12 +28,17 @@
 
 #include <ftw.h>
 #include <stdarg.h>
+#include <stdbool.h>
 #include <sys/stat.h>
 #include <talloc.h>
 #include <unistd.h>
 
 #ifndef LINE_MAX
 #define LINE_MAX 1024
+#endif
+
+#ifndef JS_TABLE_SORT_URL
+#define JS_TABLE_SORT_URL "http://www.frequency-decoder.com/demo/table-sort-revisited/js/tablesort.min.js"
 #endif
 
 /***********************************************************************
@@ -54,7 +59,11 @@ static int nftw_rm_rf(const char *path, const struct stat *sb,
 static int write_header(void *pctx, FILE * file, const char *page_name);
 static int write_footer(void *pctx, FILE * file);
 
-static int start_table(void *pctx, FILE * file, const char *id, ...);
+/* Creates a new table.  id is what ends up inside the ID field of the
+ * <table> tag.  sort_index is the index to start sorting by.
+ * reverse_sort only controls the starting index's reverse sort. */
+static int start_table(void *pctx, FILE * file, const char *id,
+                       int sort_index, bool reverse_sort, ...);
 static int table_row(void *pctx, FILE * file, ...);
 
 static int generate_player_list(void *ctx, const char *filename);
@@ -108,6 +117,10 @@ int write_header(void *pctx __attribute__ ((unused)),
     fprintf(file, "<head>\n");
     fprintf(file, "<title>%s</title>\n", page_name);
 
+    /* Load the table sorting code */
+    fprintf(file, "<script type=\"text/javascript\" src=\"%s\"></script>\n",
+            JS_TABLE_SORT_URL);
+
     /* Alternate table backgrounds for readability */
     fprintf(file,
             "<style type=\"text/css\">"
@@ -131,18 +144,29 @@ int write_footer(void *pctx __attribute__ ((unused)), FILE * file)
 }
 
 int start_table(void *pctx __attribute__ ((unused)),
-                FILE * file, const char *table_id, ...)
+                FILE * file, const char *table_id, int sort_index,
+                bool reverse_sort, ...)
 {
     va_list args;
     const char *col_name;
+    const char *reverse;
 
-    va_start(args, table_id);
+    va_start(args, reverse_sort);
 
-    fprintf(file, "<table id=\"%s\">\n", table_id);
-    fprintf(file, "<tr>\n");
+    if (reverse_sort)
+        reverse = "r";
+    else
+        reverse = "";
+
+    fprintf(file, "<table id=\"%s\""
+            "class=\"sortable-onload-%d%s\""
+            "class=\"rowstyle-alternate\""
+            ">\n", table_id, sort_index, reverse);
+
+    fprintf(file, "<thead><tr>\n");
     while ((col_name = va_arg(args, const char *)) != NULL)
-          fprintf(file, "<td><u>%s</u></td>\n", col_name);
-    fprintf(file, "</tr>\n");
+          fprintf(file, "<th class=\"sortable\">%s</th>\n", col_name);
+    fprintf(file, "</tr></thead>\n");
 
     return 0;
 }
@@ -176,7 +200,7 @@ int generate_player_list(void *pctx, const char *filename)
 
     write_header(ctx, file, "Player List");
 
-    start_table(ctx, file, "player_list",
+    start_table(ctx, file, "player_list", 2, true,
                 "ID", "Race", "ELO", "ELO Peak", NULL);
 
     plti_args.file = file;
