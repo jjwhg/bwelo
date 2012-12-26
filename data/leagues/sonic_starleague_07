@@ -1,0 +1,271 @@
+NAME Sonic's BJ Starleague Season 7
+
+PLAYER perfectman
+PLAYER pusan
+PLAYER eagle
+PLAYER lyh
+PLAYER mighty
+PLAYER hint
+PLAYER hejy
+PLAYER perry
+PLAYER sky
+PLAYER hiya
+PLAYER mong
+PLAYER asiasin
+PLAYER sexy
+PLAYER icarus
+PLAYER shinee
+PLAYER ample
+PLAYER koala
+PLAYER kangtaewan
+PLAYER killer
+PLAYER force
+PLAYER starcue
+PLAYER beast
+PLAYER minho
+PLAYER saber
+PLAYER larva
+PLAYER terror
+PLAYER zergman
+PLAYER cola
+PLAYER soma
+PLAYER ondol
+PLAYER zelot
+PLAYER mahell
+
+ROUND 32
+
+GROUP A
+GAME 1347700000 neo_jade mong < force
+GAME 1347700001 neo_electric_circuit mong > force
+GAME 1347700002 fighting_spirit mong > force
+GAME 1347700003 neo_jade zelot < pusan
+GAME 1347700004 neo_electric_circuit zelot < pusan
+GAME 1347700006 neo_jade mong < pusan
+GAME 1347700007 neo_electric_circuit mong < pusan
+GAME 1347700009 neo_jade zelot > force
+GAME 1347700010 neo_electric_circuit zelot > force
+GAME 1347700012 neo_jade zelot < mong
+GAME 1347700013 neo_electric_circuit zelot < mong
+GAME 1347700014 fighting_spirit zelot > mong
+GAME 1347700015 neo_jade zelot > mong
+GAME 1347700016 fighting_spirit zelot < mong
+
+GROUP B
+GAME 1347700100 neo_jade killer > asiasin
+GAME 1347700101 neo_electric_circuit killer > asiasin
+GAME 1347700103 neo_jade perfectman > beast
+GAME 1347700104 neo_electric_circuit perfectman > beast
+GAME 1347700106 neo_jade killer > perfectman
+GAME 1347700107 neo_electric_circuit killer > perfectman
+GAME 1347700109 neo_jade asiasin < beast
+GAME 1347700110 neo_electric_circuit asiasin > beast
+GAME 1347700111 fighting_spirit asiasin < beast
+GAME 1347700112 neo_jade perfectman > beast
+GAME 1347700113 neo_electric_circuit perfectman > beast
+GAME 1347700114 fighting_spirit perfectman > beast
+
+GROUP C
+GAME 1347700200 neo_jade eagle > starcue
+GAME 1347700201 neo_electric_circuit eagle > starcue
+GAME 1347700203 neo_jade hiya > cola
+GAME 1347700204 neo_electric_circuit hiya > cola
+GAME 1347700206 neo_jade eagle < hiya
+GAME 1347700207 neo_electric_circuit eagle < hiya
+GAME 1347700209 neo_jade starcue < cola
+GAME 1347700210 neo_electric_circuit starcue < cola
+GAME 1347700212 neo_jade cola > eagle
+GAME 1347700213 neo_electric_circuit cola > eagle
+GAME 1347700214 fighting_spirit cola > eagle
+
+GROUP D
+GAME 1347700300 neo_jade zergman > mighty
+GAME 1347700301 neo_electric_circuit zergman < mighty
+GAME 1347700302 fighting_spirit zergman > mighty
+GAME 1347700303 neo_jade shinee < sky
+GAME 1347700304 neo_electric_circuit shinee > sky
+GAME 1347700305 fighting_spirit shinee < sky
+GAME 1347700306 neo_jade zergman > sky
+GAME 1347700307 neo_electric_circuit zergman < sky
+GAME 1347700308 fighting_spirit zergman < sky
+GAME 1347700309 neo_jade mighty < shinee
+GAME 1347700310 neo_electric_circuit mighty < shinee
+GAME 1347700312 neo_jade zergman > shinee
+GAME 1347700313 neo_electric_circuit zergman > shinee
+GAME 1347700314 fighting_spirit zergman < shinee
+GAME 1347700315 neo_jade zergman < shinee
+GAME 1347700316 fighting_spirit zergman < shinee
+
+GROUP E
+GAME 1347700400 neo_jade minho < sexy
+GAME 1347700401 neo_electric_circuit minho < sexy
+GAME 1347700403 neo_jade hint < saber
+GAME 1347700404 neo_electric_circuit hint < saber
+GAME 1347700406 neo_jade saber < sexy
+GAME 1347700407 neo_electric_circuit saber > sexy
+GAME 1347700408 fighting_spirit saber > sexy
+GAME 1347700409 neo_jade minho < hint
+GAME 1347700410 neo_electric_circuit minho < hint
+GAME 1347700412 neo_jade hint < sexy
+GAME 1347700413 neo_electric_circuit hint < sexy
+GAME 1347700414 fighting_spirit hint > sexy
+GAME 1347700415 neo_jade hint > sexy
+GAME 1347700416 fighting_spirit hint > sexy
+
+GROUP F
+GAME 1347700500 neo_jade kangtaewan < terror
+GAME 1347700501 neo_electric_circuit kangtaewan > terror
+GAME 1347700502 fighting_spirit kangtaewan < terror
+GAME 1347700503 neo_jade ondol < icarus
+GAME 1347700504 neo_electric_circuit ondol < icarus
+GAME 1347700506 neo_jade icarus < terror
+GAME 1347700507 neo_electric_circuit icarus > terror
+GAME 1347700508 fighting_spirit icarus > terror
+GAME 1347700509 neo_jade kangtaewan > ondol
+GAME 1347700510 neo_electric_circuit kangtaewan > ondol
+GAME 1347700512 neo_jade ondol < kangtaewan
+GAME 1347700513 neo_electric_circuit ondol > kangtaewan
+GAME 1347700514 fighting_spirit ondol < kangtaewan
+GAME 1347700515 neo_jade ondol > kangtaewan
+GAME 1347700516 fighting_spirit ondol < kangtaewan
+
+GROUP G
+GAME 1347700600 neo_jade hejy > ample
+GAME 1347700601 neo_electric_circuit hejy > ample
+GAME 1347700603 neo_jade larva > perry
+GAME 1347700604 neo_electric_circuit larva > perry
+GAME 1347700606 neo_jade hejy < larva
+GAME 1347700607 neo_electric_circuit hejy < larva
+GAME 1347700609 neo_jade perry < ample
+GAME 1347700610 neo_electric_circuit perry > ample
+GAME 1347700611 fighting_spirit perry < ample
+GAME 1347700612 neo_jade hejy > ample
+GAME 1347700613 neo_electric_circuit hejy < ample
+GAME 1347700614 fighting_spirit hejy > ample
+GAME 1347700615 neo_jade hejy < ample
+GAME 1347700616 fighting_spirit hejy < ample
+
+GROUP H
+GAME 1347700700 neo_jade soma < koala
+GAME 1347700701 neo_electric_circuit soma < koala
+GAME 1347700703 neo_jade lyh > mahell
+GAME 1347700704 neo_electric_circuit lyh < mahell
+GAME 1347700705 fighting_spirit lyh > mahell
+GAME 1347700706 neo_jade lyh < koala
+GAME 1347700707 neo_electric_circuit lyh < koala
+GAME 1347700709 neo_jade soma > mahell
+GAME 1347700710 neo_electric_circuit soma > mahell
+GAME 1347700712 neo_jade soma < lyh
+GAME 1347700713 neo_electric_circuit soma > lyh
+GAME 1347700714 fighting_spirit soma > lyh
+GAME 1347700715 neo_jade soma > lyh
+
+ROUND 16
+
+GROUP A
+GAME 1347701000 neo_jade pusan > icarus
+GAME 1347701001 neo_electric_circuit pusan < icarus
+GAME 1347701002 new_sniper_ridge pusan > icarus
+GAME 1347701003 neo_jade larva > soma
+GAME 1347701004 neo_electric_circuit larva < soma
+GAME 1347701005 new_sniper_ridge larva > soma
+GAME 1347701006 neo_jade larva > pusan
+GAME 1347701007 neo_electric_circuit larva < pusan
+GAME 1347701008 new_sniper_ridge larva > pusan
+GAME 1347701009 neo_jade icarus < soma
+GAME 1347701010 neo_electric_circuit icarus > soma
+GAME 1347701011 new_sniper_ridge icarus > soma
+GAME 1347701012 neo_jade pusan > icarus
+GAME 1347701013 neo_electric_circuit pusan > icarus
+
+GROUP B
+GAME 1347701100 neo_jade mong < perfectman
+GAME 1347701101 neo_electric_circuit mong > perfectman
+GAME 1347701102 new_sniper_ridge mong < perfectman
+GAME 1347701103 neo_jade saber < shinee
+GAME 1347701104 neo_electric_circuit saber < shinee
+GAME 1347701106 neo_jade perfectman > shinee
+GAME 1347701107 neo_electric_circuit perfectman > shinee
+GAME 1347701109 neo_jade mong > saber
+GAME 1347701110 neo_electric_circuit mong < saber
+GAME 1347701111 new_sniper_ridge mong > saber
+GAME 1347701112 neo_jade shinee < mong
+GAME 1347701113 neo_electric_circuit shinee > mong
+GAME 1347701114 new_sniper_ridge shinee < mong
+
+GROUP C
+GAME 1347701200 neo_jade killer > hiya
+GAME 1347701201 neo_electric_circuit killer < hiya
+GAME 1347701202 new_sniper_ridge killer > hiya
+GAME 1347701203 neo_jade hint < kangtaewan
+GAME 1347701204 neo_electric_circuit hint < kangtaewan
+GAME 1347701206 neo_jade killer > kangtaewan
+GAME 1347701207 neo_electric_circuit killer < kangtaewan
+GAME 1347701208 new_sniper_ridge killer > kangtaewan
+GAME 1347701209 neo_jade hiya < hint
+GAME 1347701210 neo_electric_circuit hiya > hint
+GAME 1347701211 new_sniper_ridge hiya > hint
+GAME 1347701212 neo_jade kangtaewan < hiya
+GAME 1347701213 neo_electric_circuit kangtaewan < hiya
+
+GROUP D
+GAME 1347701300 neo_jade cola < sky
+GAME 1347701301 neo_electric_circuit cola > sky
+GAME 1347701302 new_sniper_ridge cola < sky
+GAME 1347701303 neo_jade ample > koala
+GAME 1347701304 neo_electric_circuit ample > koala
+GAME 1347701306 neo_jade sky < ample
+GAME 1347701307 neo_electric_circuit sky > ample
+GAME 1347701308 new_sniper_ridge sky > ample
+GAME 1347701309 neo_jade cola > koala
+GAME 1347701310 neo_electric_circuit cola < koala
+GAME 1347701311 new_sniper_ridge cola > koala
+GAME 1347701312 neo_jade ample < cola
+GAME 1347701313 neo_electric_circuit ample > cola
+GAME 1347701314 new_sniper_ridge ample < cola
+
+ROUND 8
+
+GAME 1347702000 neo_jade hiya < sky
+GAME 1347702001 neo_electric_circuit hiya < sky
+GAME 1347702002 wind_and_cloud hiya < sky
+
+GAME 1347702010 neo_jade mong < killer
+GAME 1347702011 neo_electric_circuit mong < killer
+GAME 1347702012 wind_and_cloud mong < killer
+
+GAME 1347702020 neo_jade larva > perfectman
+GAME 1347702021 neo_electric_circuit larva < perfectman
+GAME 1347702022 wind_and_cloud larva < perfectman
+GAME 1347702023 fighting_spirit larva > perfectman
+GAME 1347702024 new_sniper_ridge larva > perfectman
+
+GAME 1347702030 neo_jade pusan > cola
+GAME 1347702031 neo_electric_circuit pusan > cola
+GAME 1347702032 wind_and_cloud pusan > cola
+
+ROUND 4
+
+GAME 1347702100 neo_jade larva > sky
+GAME 1347702101 neo_electric_circuit larva < sky
+GAME 1347702102 wind_and_cloud larva > sky
+GAME 1347702103 fighting_spirit larva < sky
+GAME 1347702104 new_sniper_ridge larva > sky
+
+GAME 1347702110 neo_jade killer > pusan
+GAME 1347702111 neo_electric_circuit killer > pusan
+GAME 1347702112 wind_and_cloud killer > pusan
+
+ROUND Runner Up
+
+GAME 1347702120 fighting_spirit sky < pusan
+GAME 1347702121 neo_electric_circuit sky > pusan
+GAME 1347702122 wind_and_cloud sky > pusan
+
+ROUND Final
+
+GAME 1347702130 fighting_spirit larva < killer
+GAME 1347702131 neo_jade larva < killer
+GAME 1347702132 wind_and_cloud larva > killer
+GAME 1347702133 new_sniper_ridge larva < killer
+GAME 1347702134 neo_electric_circuit larva < killer
