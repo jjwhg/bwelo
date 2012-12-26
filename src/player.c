@@ -29,7 +29,7 @@
 #include <math.h>
 
 #ifndef PLAYER_DEFAULT_ELO
-#define PLAYER_DEFAULT_ELO 1000
+#define PLAYER_DEFAULT_ELO 2000
 #endif
 
 #ifndef ELO_K
