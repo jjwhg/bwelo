@@ -107,6 +107,15 @@ int write_header(void *pctx __attribute__ ((unused)),
     fprintf(file, "<html>\n");
     fprintf(file, "<head>\n");
     fprintf(file, "<title>%s</title>\n", page_name);
+
+    /* Alternate table backgrounds for readability */
+    fprintf(file,
+            "<style type=\"text/css\">"
+            "tr:nth-child(even) {background: #EEE}" "</style>\n");
+    fprintf(file,
+            "<style type=\"text/css\">"
+            "tr:nth-child(odd) {background: #FFF}" "</style>\n");
+
     fprintf(file, "</head>\n");
     fprintf(file, "<body>\n");
 
