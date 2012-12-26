@@ -158,7 +158,8 @@ struct player *player_list_get(struct player_list *pl, const char *key)
     return NULL;
 }
 
-int player_list_each(struct player_list *pl, int (*func) (struct player *))
+int player_list_each(struct player_list *pl,
+                     int (*func) (struct player *, void *), void *arg)
 {
     struct player_list_node *cur;
 
@@ -167,7 +168,7 @@ int player_list_each(struct player_list *pl, int (*func) (struct player *))
     {
         int ret;
 
-        if ((ret = func(cur->data)) != 0)
+        if ((ret = func(cur->data, arg)) != 0)
             return ret;
 
         cur = cur->next;

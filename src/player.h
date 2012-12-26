@@ -38,8 +38,10 @@ int player_win(struct player *winner, struct player *loser);
 
 /* Access some basic data about a player. */
 player_elo_t player_elo(struct player *player);
-const char *player_name(struct player *player);
+player_elo_t player_elo_peak(struct player *player);
+const char *player_id(struct player *player);
 int player_wins(struct player *player);
 int player_losses(struct player *player);
+enum race player_race(struct player *player);
 
 #endif

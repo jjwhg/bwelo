@@ -48,6 +48,7 @@ int player_list_copy(struct player_list *pl, const char *key,
 struct player *player_list_get(struct player_list *pl, const char *key);
 
 /* Walks through each player in the list in no particular order. */
-int player_list_each(struct player_list *pl, int (*func) (struct player *));
+int player_list_each(struct player_list *pl,
+                     int (*func) (struct player *, void *), void *arg);
 
 #endif

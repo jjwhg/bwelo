@@ -45,8 +45,8 @@
  ***********************************************************************/
 struct player
 {
-    /* The player's well-formatted name. */
-    const char *name;
+    /* The player's well-formatted ID */
+    const char *id;
 
     /* The race this player plays most often. */
     enum race race;
@@ -90,7 +90,7 @@ struct player *player_read_file(void *c, const char *filename)
         return NULL;
 
     /* Sets everything to the default. */
-    p->name = NULL;
+    p->id = NULL;
     p->race = RACE_UNKNOWN;
     p->games = game_list_new(p);
     p->elo = PLAYER_DEFAULT_ELO;
@@ -113,8 +113,8 @@ struct player *player_read_file(void *c, const char *filename)
             buf[strlen(buf) - 1] = '\0';
 
         /* Attempt to parse! */
-        if ((b = strip_front(buf, "NAME ")) != NULL)
-            p->name = talloc_strdup(p, b);
+        if ((b = strip_front(buf, "ID ")) != NULL)
+            p->id = talloc_strdup(p, b);
         else if ((b = strip_front(buf, "RACE ")) != NULL)
             p->race = race_parse(b);
     }
@@ -180,9 +180,14 @@ player_elo_t player_elo(struct player * player)
     return player->elo;
 }
 
-const char *player_name(struct player *player)
+player_elo_t player_elo_peak(struct player * player)
 {
-    return player->name;
+    return player->peak_elo;
+}
+
+const char *player_id(struct player *player)
+{
+    return player->id;
 }
 
 int player_wins(struct player *player)
@@ -193,4 +198,9 @@ int player_wins(struct player *player)
 int player_losses(struct player *player)
 {
     return player->losses;
+}
+
+enum race player_race(struct player *player)
+{
+    return player->race;
 }

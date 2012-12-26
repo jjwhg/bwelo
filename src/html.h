@@ -19,24 +19,10 @@
  * along with bwelo.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef RACE_H
-#define RACE_H
+#ifndef HTML_H
+#define HTML_H
 
-/* There are 4 races in Brood War, plus an uninitialized value */
-enum race
-{
-    RACE_UNKNOWN,
-    RACE_TERRAN,
-    RACE_ZERG,
-    RACE_PROTOSS,
-    RACE_RANDOM,
-};
-
-/* Parses a string into a race. */
-enum race race_parse(const char *str);
-
-/* Turns a race into a string.  These are allocated in constant memory
- * so they don't need to be freed. */
-const char *race_string(enum race race);
+/* Cleans the given output directory and generates a new one */
+int html_generate(void *parent_context, const char *outdir);
 
 #endif

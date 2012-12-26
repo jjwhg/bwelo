@@ -21,6 +21,7 @@
 
 #include "race.h"
 
+#include <stdlib.h>
 #include <strings.h>
 
 /***********************************************************************
@@ -36,4 +37,25 @@ enum race race_parse(const char *str)
         return RACE_PROTOSS;
 
     return RACE_UNKNOWN;
+}
+
+const char *race_string(enum race race)
+{
+    switch (race)
+    {
+    case RACE_UNKNOWN:
+        return "Unknown";
+    case RACE_TERRAN:
+        return "Terran";
+    case RACE_ZERG:
+        return "Zerg";
+    case RACE_PROTOSS:
+        return "Protoss";
+    case RACE_RANDOM:
+        return "Random";
+    }
+
+    /* FIXME: Can't get here leagally, but it's still necessary
+     *        because I guess you could cast an integer to the enum. */
+    return NULL;
 }

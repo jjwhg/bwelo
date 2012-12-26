@@ -22,12 +22,19 @@
 #include "player_list.h"
 #include "league_list.h"
 #include "global.h"
+#include "html.h"
 
 #include <stdio.h>
 #include <talloc.h>
 
-static int print_elo(struct player *player);
+/***********************************************************************
+ * Static Method Headers                                               *
+ ***********************************************************************/
+static int print_elo(struct player *player, void *unused);
 
+/***********************************************************************
+ * Extern Methods                                                      *
+ ***********************************************************************/
 int main(int argc, char **argv)
 {
     void *root_context;
@@ -55,7 +62,11 @@ int main(int argc, char **argv)
     league_list = league_list_new(root_context, INDIR "/leagues");
 
     /* List every player's Elo rating */
-    player_list_each(global_player_list, &print_elo);
+    player_list_each(global_player_list, &print_elo, NULL);
+
+    /* Open up a new HTML generator */
+    if (html_generate(root_context, OUTDIR) != 0)
+        fprintf(stderr, "HTML generation failed\n");
 
     /* Clean up everything we've allocated. */
     TALLOC_FREE(root_context);
@@ -63,9 +74,12 @@ int main(int argc, char **argv)
     return 0;
 }
 
-int print_elo(struct player *player)
+/***********************************************************************
+ * Static Methods                                                      *
+ ***********************************************************************/
+int print_elo(struct player *player, void *uu __attribute__ ((unused)))
 {
     printf("%4d (%2d-%2d) %s\n", (int)player_elo(player),
-           player_wins(player), player_losses(player), player_name(player));
+           player_wins(player), player_losses(player), player_id(player));
     return 0;
 }
