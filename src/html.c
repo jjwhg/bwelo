@@ -340,7 +340,8 @@ int player_page_table(struct game *game, void *args_uncast)
     void *ctx;
     const char *time;
     const char *winner_key, *loser_key;
-    const char *opponent_key, *opponent_id, *opponent_link;
+    const char *opponent_key, *opponent_link;
+    struct player *opponent;
     const char *result;
 
     args = args_uncast;
@@ -355,11 +356,11 @@ int player_page_table(struct game *game, void *args_uncast)
 
     opponent_key = (strcmp(winner_key, args->player_key) == 0)
         ? loser_key : winner_key;
-    opponent_id =
-        player_id(player_list_get(global_player_list, opponent_key));
+    opponent = player_list_get(global_player_list, opponent_key);
     opponent_link =
-        talloc_asprintf(ctx, "<a href=\"player_%s.html\">%s</a>",
-                        opponent_key, opponent_id);
+        talloc_asprintf(ctx, "<a href=\"player_%s.html\">%s</a> (%s)",
+                        opponent_key, player_id(opponent),
+                        race_string(player_race(opponent)));
 
     if (opponent_link == NULL)
         goto failure;
