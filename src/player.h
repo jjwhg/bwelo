@@ -26,15 +26,20 @@
 struct player;
 
 #include "race.h"
+#include "game.h"
 
 typedef double player_elo_t;
 
 /* Reads a player's information from a file, setting the remaining
  * information to the default values. */
-struct player *player_read_file(void *c, const char *filename);
+struct player *player_read_file(void *c, const char *filename,
+                                const char *key);
 
 /* Records a win (and a loss for the other player) */
 int player_win(struct player *winner, struct player *loser);
+
+/* Adds a played game to the list of games this played has played */
+int player_play(struct player *player, struct game *game);
 
 /* Access some basic data about a player. */
 player_elo_t player_elo(struct player *player);
@@ -43,5 +48,10 @@ const char *player_id(struct player *player);
 int player_wins(struct player *player);
 int player_losses(struct player *player);
 enum race player_race(struct player *player);
+const char *player_key(struct player *player);
+
+/* Iterates through every game this player has played */
+int player_each_game(struct player *player,
+                     int (*iter) (struct game *, void *), void *data);
 
 #endif

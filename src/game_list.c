@@ -120,3 +120,22 @@ void game_list_iterator_next(struct game_list_iterator *gli)
 
     gli->cur = gli->cur->next;
 }
+
+int game_list_each(struct game_list *gl,
+                   int (*func) (struct game *, void *), void *arg)
+{
+    struct game_list_node *cur;
+
+    cur = gl->head;
+    while (cur != NULL)
+    {
+        int ret;
+
+        if ((ret = func(cur->data, arg)) != 0)
+            return ret;
+
+        cur = cur->next;
+    }
+
+    return 0;
+}

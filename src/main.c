@@ -106,5 +106,8 @@ int update_elo(struct game *game, void *uu __attribute__ ((unused)))
     if (player_win(winner, loser) != 0)
         return -1;
 
+    player_play(winner, game);
+    player_play(loser, game);
+
     return 0;
 }

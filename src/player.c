@@ -61,6 +61,9 @@ struct player
     /* The win-loss ratio of this player */
     int wins;
     int losses;
+
+    /* The key that uniquely identifies this player */
+    const char *key;
 };
 
 /***********************************************************************
@@ -79,7 +82,8 @@ static const char *strip_front(const char *hs, const char *ne);
 /***********************************************************************
  * Extern Methods                                                      *
  ***********************************************************************/
-struct player *player_read_file(void *c, const char *filename)
+struct player *player_read_file(void *c, const char *filename,
+                                const char *key)
 {
     struct player *p;
     FILE *pf;
@@ -97,6 +101,9 @@ struct player *player_read_file(void *c, const char *filename)
     p->peak_elo = p->elo;
     p->wins = 0;
     p->losses = 0;
+    p->key = NULL;
+    if (key != NULL)
+        p->key = talloc_reference(p, key);
 
     /* Reads the input file. */
     pf = fopen(filename, "r");
@@ -154,6 +161,11 @@ int player_win(struct player *winner, struct player *loser)
     return 0;
 }
 
+int player_play(struct player *player, struct game *game)
+{
+    return game_list_add(player->games, game);
+}
+
 /***********************************************************************
  * Static Methods                                                      *
  ***********************************************************************/
@@ -203,4 +215,15 @@ int player_losses(struct player *player)
 enum race player_race(struct player *player)
 {
     return player->race;
+}
+
+const char *player_key(struct player *player)
+{
+    return player->key;
+}
+
+int player_each_game(struct player *player,
+                     int (*iter) (struct game *, void *), void *data)
+{
+    return game_list_each(player->games, iter, data);
 }

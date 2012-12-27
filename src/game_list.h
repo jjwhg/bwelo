@@ -49,4 +49,8 @@ struct game *game_list_iterator_cur(struct game_list_iterator *gli);
 /* Moves the iterator to the next item. */
 void game_list_iterator_next(struct game_list_iterator *gli);
 
+/* Walks through each game in the list in no particular order. */
+int game_list_each(struct game_list *gl,
+                   int (*func) (struct game *, void *), void *arg);
+
 #endif

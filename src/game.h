@@ -38,6 +38,7 @@ int game_compare_time(const struct game *a, const struct game *b);
  * file.  This string should have the "GAME " part stripped
  * already. */
 struct game *game_parse(void *ctx, const char *desc,
+                        const char *league_name,
                         const char *round, const char *group);
 
 /* Returns (as a key) the winner/loser of a given game.  This will be
@@ -45,5 +46,8 @@ struct game *game_parse(void *ctx, const char *desc,
  * long -- reference if you want it to stick around. */
 const char *game_winner_key(struct game *game);
 const char *game_loser_key(struct game *game);
+game_time_t game_time(struct game *game);
+const char *game_league_name(struct game *game);
+const char *game_map_key(struct game *game);
 
 #endif

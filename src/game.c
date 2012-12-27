@@ -46,6 +46,7 @@ struct game
 
     /* Each game sits inside a round and a group, mostly used for
      * display purposes */
+    const char *league_name;
     const char *round;
     const char *group;
 
@@ -68,6 +69,7 @@ int game_compare_time(const struct game *a, const struct game *b)
 }
 
 struct game *game_parse(void *ctx, const char *desc,
+                        const char *league_name,
                         const char *round, const char *group)
 {
     void *tmp;
@@ -103,6 +105,7 @@ struct game *game_parse(void *ctx, const char *desc,
         goto failure;
 
     game->start_time = start_date;
+    game->league_name = talloc_reference(game, league_name);
     game->map_key = talloc_strdup(game, map_key);
     game->round = talloc_reference(game, round);
 
@@ -143,4 +146,19 @@ const char *game_winner_key(struct game *game)
 const char *game_loser_key(struct game *game)
 {
     return game->loser_key;
+}
+
+game_time_t game_time(struct game * game)
+{
+    return game->start_time;
+}
+
+const char *game_league_name(struct game *game)
+{
+    return game->league_name;
+}
+
+const char *game_map_key(struct game *game)
+{
+    return game->map_key;
 }

@@ -124,7 +124,7 @@ struct league *league_read_file(void *c, const char *filename)
             const char *winner_key, *loser_key;
             struct player *winner, *loser;
 
-            game = game_parse(tmp, b, round, group);
+            game = game_parse(tmp, b, l->name, round, group);
             if (game == NULL)
             {
                 fprintf(stderr, "%s:%d Unable to parse game data\n",

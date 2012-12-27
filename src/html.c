@@ -22,6 +22,7 @@
 #define _XOPEN_SOURCE 500
 
 #include "html.h"
+#include "game.h"
 #include "global.h"
 #include "player.h"
 #include "player_list.h"
@@ -29,6 +30,7 @@
 #include <ftw.h>
 #include <stdarg.h>
 #include <stdbool.h>
+#include <string.h>
 #include <sys/stat.h>
 #include <talloc.h>
 #include <unistd.h>
@@ -50,6 +52,19 @@ struct player_list_table_iter_args
     void *pctx;
 };
 
+struct generate_player_page_args
+{
+    void *pctx;
+    const char *outdir;
+};
+
+struct player_page_table_args
+{
+    void *pctx;
+    FILE *file;
+    const char *player_key;
+};
+
 /***********************************************************************
  * Static Method Headers                                               *
  ***********************************************************************/
@@ -65,9 +80,13 @@ static int write_footer(void *pctx, FILE * file);
 static int start_table(void *pctx, FILE * file, const char *id,
                        int sort_index, bool reverse_sort, ...);
 static int table_row(void *pctx, FILE * file, ...);
+static int end_table(void *pctx, FILE * file);
 
 static int generate_player_list(void *ctx, const char *filename);
 static int player_list_table_iter(struct player *player, void *args_uc);
+
+static int generate_player_page(struct player *player, void *args);
+static int player_page_table(struct game *game, void *args);
 
 /***********************************************************************
  * Extern Methods                                                      *
@@ -76,6 +95,7 @@ int html_generate(void *parent_context, const char *outdir)
 {
     void *ctx;
     const char *player_list_filename;
+    struct generate_player_page_args gpp_args;
 
     ctx = talloc_new(parent_context);
     if (ctx == NULL)
@@ -86,9 +106,14 @@ int html_generate(void *parent_context, const char *outdir)
     nftw(outdir, &nftw_rm_rf, 16, FTW_DEPTH);
     mkdir(outdir, 0777);
 
-    /* Generates one page of every type. */
+    /* Generates the list of all players */
     player_list_filename = talloc_asprintf(ctx, "%s/players.html", outdir);
     generate_player_list(ctx, player_list_filename);
+
+    /* Generates a page for every player in the database */
+    gpp_args.pctx = ctx;
+    gpp_args.outdir = outdir;
+    player_list_each(global_player_list, generate_player_page, &gpp_args);
 
     TALLOC_FREE(ctx);
     return 0;
@@ -186,6 +211,12 @@ int table_row(void *pctx __attribute__ ((unused)), FILE * file, ...)
     return 0;
 }
 
+int end_table(void *pctx __attribute__ ((unused)), FILE * file)
+{
+    fprintf(file, "</table>\n");
+    return 0;
+}
+
 int generate_player_list(void *pctx, const char *filename)
 {
     FILE *file;
@@ -207,6 +238,8 @@ int generate_player_list(void *pctx, const char *filename)
     plti_args.pctx = ctx;
     player_list_each(global_player_list, &player_list_table_iter, &plti_args);
 
+    end_table(ctx, file);
+
     write_footer(ctx, file);
 
     fclose(file);
@@ -222,6 +255,7 @@ int player_list_table_iter(struct player *player, void *args_uc)
 {
     struct player_list_table_iter_args *args;
     const char *elo, *elo_peak;
+    const char *player_link;
     void *ctx;
 
     args = args_uc;
@@ -231,9 +265,110 @@ int player_list_table_iter(struct player *player, void *args_uc)
 
     elo = talloc_asprintf(ctx, "%d", (int)player_elo(player));
     elo_peak = talloc_asprintf(ctx, "%d", (int)player_elo_peak(player));
+    player_link = talloc_asprintf(ctx,
+                                  "<a href=\"player_%s.html\">%s</a>",
+                                  player_key(player), player_id(player));
     table_row(ctx, args->file,
-              player_id(player),
+              player_link,
               race_string(player_race(player)), elo, elo_peak, NULL);
+
+    TALLOC_FREE(ctx);
+    return 0;
+
+  failure:
+    if (ctx != NULL)
+        TALLOC_FREE(ctx);
+    return 1;
+}
+
+int generate_player_page(struct player *player, void *args_uncast)
+{
+    struct generate_player_page_args *args;
+    void *ctx;
+    const char *file_name;
+    const char *page_title;
+    FILE *file;
+    struct player_page_table_args ppt_args;
+
+    args = args_uncast;
+    ctx = talloc_new(args->pctx);
+    if (ctx == NULL)
+        return 1;
+
+    file_name = talloc_asprintf(ctx, "%s/player_%s.html",
+                                args->outdir, player_key(player));
+
+    file = fopen(file_name, "w");
+    if (file == NULL)
+        goto failure;
+
+    page_title = talloc_asprintf(ctx, "Player Page: %s\n", player_id(player));
+    write_header(ctx, file, page_title);
+
+    fprintf(file, "ID: <b>%s</b><br/>\n", player_id(player));
+    fprintf(file, "Race: <b>%s</b><br/>\n", race_string(player_race(player)));
+    fprintf(file, "Elo: <b>%d</b><br/>\n", (int)player_elo(player));
+    fprintf(file, "Elo Peak: <b>%d</b><br/>\n", (int)player_elo_peak(player));
+    fprintf(file, "Record: <b>%d</b> - <b>%d</b><br/>\n",
+            player_wins(player), player_losses(player));
+
+    start_table(ctx, file, "game_list", 1, true,
+                "Tournament", "Date", "Map", "Opponent", "Result", NULL);
+
+    ppt_args.pctx = ctx;
+    ppt_args.file = file;
+    ppt_args.player_key = player_key(player);
+    player_each_game(player, &player_page_table, &ppt_args);
+
+    end_table(ctx, file);
+
+    write_footer(ctx, file);
+
+    fclose(file);
+    TALLOC_FREE(ctx);
+    return 0;
+
+  failure:
+    if (ctx != NULL)
+        TALLOC_FREE(ctx);
+    return 1;
+}
+
+int player_page_table(struct game *game, void *args_uncast)
+{
+    struct player_page_table_args *args;
+    void *ctx;
+    const char *time;
+    const char *winner_key, *loser_key;
+    const char *opponent_key, *opponent_id, *opponent_link;
+    const char *result;
+
+    args = args_uncast;
+    ctx = talloc_new(args->pctx);
+    if (ctx == NULL)
+        return 1;
+
+    time = talloc_asprintf(ctx, "%ld", game_time(game));
+
+    winner_key = game_winner_key(game);
+    loser_key = game_loser_key(game);
+
+    opponent_key = (strcmp(winner_key, args->player_key) == 0)
+        ? loser_key : winner_key;
+    opponent_id =
+        player_id(player_list_get(global_player_list, opponent_key));
+    opponent_link =
+        talloc_asprintf(ctx, "<a href=\"player_%s.html\">%s</a>",
+                        opponent_key, opponent_id);
+
+    if (opponent_link == NULL)
+        goto failure;
+
+    result = (strcmp(winner_key, args->player_key) == 0)
+        ? "<b>win</b>" : "loss";
+
+    table_row(ctx, args->file, game_league_name(game), time,
+              game_map_key(game), opponent_link, result, NULL);
 
     TALLOC_FREE(ctx);
     return 0;

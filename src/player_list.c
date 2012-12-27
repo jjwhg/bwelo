@@ -92,7 +92,7 @@ struct player_list *player_list_new(void *context, const char *indir)
 
         /* Read the player information from the given file. */
         player_filename = talloc_asprintf(tcxt, "%s/%s", indir, key);
-        player = player_read_file(tcxt, player_filename);
+        player = player_read_file(tcxt, player_filename, key);
         if (player == NULL)
             goto failure;
 
