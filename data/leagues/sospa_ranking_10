@@ -1,0 +1,51 @@
+NAME 10th SOSPA Ranking Tournament
+
+PLAYER hiya
+PLAYER mong
+PLAYER larva
+PLAYER byhero
+PLAYER movie
+PLAYER sky
+PLAYER shuttle
+PLAYER pusan
+
+ROUND 8
+GAME 1353903001 neo_jade sky < larva
+GAME 1353903002 fighting_spirit sky < larva
+GAME 1353903003 wind_and_cloud sky > larva
+GAME 1353903004 neo_electric_circuit sky < larva
+
+GAME 1353903011 neo_jade pusan < hiya
+GAME 1353903012 fighting_spirit pusan > hiya
+GAME 1353903013 wind_and_cloud pusan < hiya
+GAME 1353903014 neo_electric_circuit pusan > hiya
+GAME 1353903015 new_bloody_ridge pusan < hiya
+
+GAME 1353903021 neo_jade mong > movie
+GAME 1353903022 fighting_spirit mong > movie
+GAME 1353903023 wind_and_cloud mong < movie
+GAME 1353903024 neo_electric_circuit mong > movie
+
+GAME 1353903031 neo_jade byhero > shuttle
+GAME 1353903032 fighting_spirit byhero > shuttle
+GAME 1353903033 wind_and_cloud byhero > shuttle
+
+ROUND Semifinals
+GAME 1353903111 neo_jade larva < hiya
+GAME 1353903112 fighting_spirit larva < hiya
+GAME 1353903113 wind_and_cloud larva > hiya
+GAME 1353903114 neo_electric_circuit larva < hiya
+
+GAME 1353903121 neo_jade mong > byhero
+GAME 1353903122 fighting_spirit mong < byhero
+GAME 1353903123 wind_and_cloud mong < byhero
+GAME 1353903124 neo_electric_circuit mong < byhero
+
+ROUND Finals
+GAME 1353903211 neo_jade hiya < byhero
+GAME 1353903212 fighting_spirit hiya > byhero
+GAME 1353903213 wind_and_cloud hiya < byhero
+GAME 1353903214 neo_electric_circuit hiya < byhero
+GAME 1353903215 new_bloody_ridge hiya > byhero
+GAME 1353903216 new_bloody_ridge hiya > byhero
+GAME 1353903217 new_bloody_ridge hiya > byhero
