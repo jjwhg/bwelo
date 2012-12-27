@@ -1,0 +1,35 @@
+NAME 11th SOSPA Ranking Tournament
+
+PLAYER ample
+PLAYER hiya
+PLAYER mong
+PLAYER sea
+PLAYER shinee
+PLAYER beast
+PLAYER force
+PLAYER larva
+PLAYER byhero
+PLAYER terror
+PLAYER zelot
+PLAYER movie
+PLAYER perfectman
+PLAYER sky
+PLAYER shuttle
+PLAYER tyson
+
+ROUND 16
+
+GROUP A
+GAME 1356622737 fighting_spirit sea > zelot
+GAME 1356622738 neo_electric_circuit sea > zelot
+GAME 1356622740 fighting_spirit sky > ample
+GAME 1356622741 neo_electric_circuit sky < ample
+GAME 1356622742 neo_jade sky > ample
+GAME 1356622743 fighting_spirit sea > sky
+GAME 1356622744 neo_electric_circuit sea > sky
+GAME 1356622746 fighting_spirit zelot < ample
+GAME 1356622747 neo_electric_circuit zelot < ample
+GAME 1356622749 fighting_spirit sky < ample
+GAME 1356622750 neo_electric_circuit sky > ample
+GAME 1356622750 neo_jade sky < ample
+
