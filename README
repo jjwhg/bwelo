@@ -1,3 +1,7 @@
+=====================================================================
+= How to Generate the Database                                      =
+=====================================================================
+
 * Install the dependencies: talloc and gcc.
 
 * Build the code by running "./ubuild".
@@ -6,3 +10,44 @@
 
 * The output ends up in "./html/" as HTML files.  Use your web browser
   to view them.
+
+=====================================================================
+= Adding Entries to the Database                                    =
+=====================================================================
+
+data/leagues contains a list of leagues, and data/players contains a
+list of players.  Both of these lists are just a folder full of plain
+text files.
+
+The player format should be pretty self-explanatory: each player gets
+their own file, named by the player's "key" (a short, lowercase,
+english string that uniquely identifies that player -- I've just been
+using their ID with any special characters or team names stripped
+out).  You can look at the some other players in the list for
+examples.
+
+The league format is a bit more complicated.  Each league gets put in
+its own file with a key (like the player's key: something short and
+english to identify it).  You can look at any league as an example of
+all the lines needed, most of them should be pretty self-explanitory.
+The one complicated field is the GAME line.  A GAME line represents a
+single game played.  It looks like this:
+
+GAME date map player1 winner player2
+
+where
+
+* date is a UNIX time (in seconds) when the game started.  This is
+  used to order games in case any leagues are run in parallel, so it
+  doesn't have to be super exact.  You can produce a date by running
+  "date +%s".
+
+* map is the map key.  I currently don't actually do anything with the
+  map keys, but the idea is that it uniquely identifies a map just
+  like player and league keys.
+
+* player1 and player2 are the keys of the two players that played in
+  the game.
+
+* winner is either '>' or '<', with the larger side pointing to the
+  winning player: so "player1 > player2" means player1 beat player2.
