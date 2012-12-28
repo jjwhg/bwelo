@@ -9,7 +9,7 @@ PLAYER beast
 PLAYER force
 PLAYER larva
 PLAYER byhero
-PLAYER terror
+PLAYER snail
 PLAYER zelot
 PLAYER movie
 PLAYER perfectman
@@ -33,3 +33,16 @@ GAME 1356622749 fighting_spirit sky < ample
 GAME 1356622750 neo_electric_circuit sky > ample
 GAME 1356622750 neo_jade sky < ample
 
+GROUP B
+GAME 1356713807 fighting_spirit shinee > tyson
+GAME 1356713808 neo_electric_circuit shinee < tyson
+GAME 1356713809 neo_jade shinee < tyson
+GAME 1356713810 fighting_spirit snail < mong
+GAME 1356713811 neo_electric_circuit snail < mong
+GAME 1356713812 fighting_spirit tyson < mong
+GAME 1356713813 neo_electric_circuit tyson > mong
+GAME 1356713814 neo_jade tyson > mong
+GAME 1356713815 fighting_spirit shinee > snail
+GAME 1356713816 neo_electric_circuit shinee > snail
+GAME 1356713817 fighting_spirit mong > shinee
+GAME 1356713818 neo_electric_circuit mong > shinee
