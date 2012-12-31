@@ -22,7 +22,7 @@ PLAYER killer
 PLAYER force
 PLAYER starcue
 PLAYER beast
-PLAYER minho
+PLAYER progamer
 PLAYER saber
 PLAYER larva
 PLAYER terror
@@ -97,15 +97,15 @@ GAME 1347700315 neo_jade zergman < shinee
 GAME 1347700316 fighting_spirit zergman < shinee
 
 GROUP E
-GAME 1347700400 neo_jade minho < sexy
-GAME 1347700401 neo_electric_circuit minho < sexy
+GAME 1347700400 neo_jade progamer < sexy
+GAME 1347700401 neo_electric_circuit progamer < sexy
 GAME 1347700403 neo_jade hint < saber
 GAME 1347700404 neo_electric_circuit hint < saber
 GAME 1347700406 neo_jade saber < sexy
 GAME 1347700407 neo_electric_circuit saber > sexy
 GAME 1347700408 fighting_spirit saber > sexy
-GAME 1347700409 neo_jade minho < hint
-GAME 1347700410 neo_electric_circuit minho < hint
+GAME 1347700409 neo_jade progamer < hint
+GAME 1347700410 neo_electric_circuit progamer < hint
 GAME 1347700412 neo_jade hint < sexy
 GAME 1347700413 neo_electric_circuit hint < sexy
 GAME 1347700414 fighting_spirit hint > sexy
