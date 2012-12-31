@@ -1,0 +1,121 @@
+NAME 7th SOSPA Ranking Tournament
+
+PLAYER sexy
+PLAYER ample
+PLAYER koala
+PLAYER mong
+PLAYER hiya
+PLAYER icarus
+PLAYER lyh
+PLAYER sky
+PLAYER pusan
+PLAYER backho
+PLAYER anytime
+PLAYER jimin
+PLAYER beast
+PLAYER cola
+PLAYER larva
+PLAYER force
+
+ROUND 32
+
+GROUP A
+GAME 1340636400 fighting_spirit lyh < jimin
+GAME 1340636401 jade lyh < jimin
+#GAME 1340636410 fighting_spirit 
+#GAME 1340636411 jade
+GAME 1340636412 circuit_breaker sexy < beast
+#GAME 1340636420 fighting_spirit 
+#GAME 1340636421 jade
+GAME 1340636422 circuit_breaker jimin > beast
+GAME 1340636430 fighting_spirit lyh < sexy
+GAME 1340636431 jade lyh < sexy
+#GAME 1340636440 fighting_spirit 
+#GAME 1340636441 jade
+GAME 1340636442 circuit_breaker sexy > beast
+
+GROUP B
+#GAME 1340722800 fighting_spirit
+#GAME 1340722801 jade
+GAME 1340722802 circuit_breaker sky < koala
+GAME 1340722810 fighting_spirit cola > ample
+GAME 1340722811 jade cola > ample
+#GAME 1340722820 fighting_spirit 
+#GAME 1340722821 jade
+GAME 1340722822 circuit_breaker cola > koala
+GAME 1340722830 fighting_spirit ample > sky
+GAME 1340722831 jade ample > sky
+#GAME 1340722840 fighting_spirit 
+#GAME 1340722841 jade
+GAME 1340722842 circuit_breaker ample > koala
+
+GROUP C
+GAME 1340809200 fighting_spirit mong > larva
+GAME 1340809201 jade mong > larva
+GAME 1340809210 fighting_spirit pusan < force
+GAME 1340809211 jade pusan > force
+GAME 1340809212 circuit_breaker pusan > force
+GAME 1340809220 fighting_spirit mong > pusan
+GAME 1340809221 jade mong > pusan
+GAME 1340809230 fighting_spirit larva < force
+GAME 1340809231 jade larva > force
+GAME 1340809232 circuit_breaker larva < force
+GAME 1340809240 fighting_spirit pusan > force
+GAME 1340809241 jade pusan < force
+GAME 1340809242 circuit_breaker pusan > force
+
+GROUP D
+#GAME 1340895600 fighting_spirit 
+#GAME 1340895601 jade
+#GAME 1340895602 circuit_breaker
+#GAME 1340895610 fighting_spirit 
+#GAME 1340895611 jade
+#GAME 1340895612 circuit_breaker
+#GAME 1340895620 fighting_spirit 
+#GAME 1340895621 jade
+#GAME 1340895622 circuit_breaker
+#GAME 1340895630 fighting_spirit 
+#GAME 1340895631 jade
+#GAME 1340895632 circuit_breaker
+#GAME 1340895640 fighting_spirit 
+#GAME 1340895641 jade
+#GAME 1340895642 circuit_breaker
+
+ROUND 8
+
+GAME 1341068400 fighting_spirit backho > sexy
+GAME 1341068401 jade backho < sexy
+GAME 1341068402 circuit_breaker backho < sexy
+GAME 1341068403 sniper_ridge backho < sexy
+
+GAME 1341068410 fighting_spirit hiya < ample
+GAME 1341068411 jade hiya < ample
+GAME 1341068412 circuit_breaker hiya < ample
+
+GAME 1341068420 fighting_spirit cola > jimin
+GAME 1341068421 jade cola > jimin
+GAME 1341068422 circuit_breaker cola > jimin
+
+GAME 1341068430 fighting_spirit mong > pusan
+GAME 1341068431 jade mong > pusan
+GAME 1341068432 circuit_breaker mong > pusan
+
+ROUND Semifinals
+
+#GAME 1341500400 fighting_spirit
+#GAME 1341500400 jade
+#GAME 1341500400 circuit_breaker
+GAME 1341500400 sniper_ridge mong > ample
+
+#GAME 1341500410 fighting_spirit
+#GAME 1341500410 jade
+#GAME 1341500410 circuit_breaker
+#GAME 1341500410 sniper_ridge
+#GAME 1341500410 fighting_spirit
+
+ROUND Finals
+
+GAME 1341586800 fighting_spirit mong > sexy
+GAME 1341586801 jade mong < sexy
+GAME 1341586802 circuit_breaker mong > sexy
+GAME 1341586803 sniper_ridge mong > sexy
