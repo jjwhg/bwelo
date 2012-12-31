@@ -101,7 +101,11 @@ struct league *league_read_file(void *c, const char *filename)
             buf[strlen(buf) - 1] = '\0';
 
         /* Attempt to parse! */
-        if ((b = strip_front(buf, "NAME ")) != NULL)
+        if (buf[0] == '#')
+        {
+            /* Skip comments! */
+        }
+        else if ((b = strip_front(buf, "NAME ")) != NULL)
             l->name = talloc_strdup(l, b);
         else if ((b = strip_front(buf, "PLAYER ")) != NULL)
         {
