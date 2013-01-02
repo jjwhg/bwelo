@@ -1,0 +1,61 @@
+NAME Onse Telecom 2 Number Plus SonicTV BJStarleague
+
+PLAYER shinee
+PLAYER hiya
+PLAYER mong
+PLAYER icarus
+PLAYER sexy
+PLAYER anytime
+PLAYER sky
+PLAYER pusan
+PLAYER seakh
+PLAYER lyh
+PLAYER backho
+PLAYER starcue
+PLAYER mahell
+PLAYER zergman
+PLAYER beast
+PLAYER minho
+
+ROUND 8
+
+GAME 1334934001 fighting_spirit icarus < sexy
+GAME 1334934002 jade icarus > sexy
+GAME 1334934003 neo_electric_circuit icarus > sexy
+GAME 1334934004 neo_ground_zero icarus < sexy
+GAME 1334934005 circuit_breaker icarus > sexy
+
+GAME 1334934011 fighting_spirit minho > backho
+GAME 1334934012 jade minho > backho
+GAME 1334934013 neo_electric_circuit minho > backho
+
+GAME 1334934021 fighting_spirit pusan < sky
+GAME 1334934022 jade pusan < sky
+GAME 1334934023 neo_electric_circuit pusan < sky
+
+GAME 1334934031 fighting_spirit anytime < mong
+GAME 1334934032 jade anytime < mong
+GAME 1334934033 neo_electric_circuit anytime < mong
+
+ROUND Semifinals
+
+GAME 1335366000 fighting_spirit mong > minho
+GAME 1335366001 jade mong < minho
+GAME 1335366002 neo_electric_circuit mong < minho
+GAME 1335366003 neo_ground_zero mong > minho
+GAME 1335366004 circuit_breaker mong > minho
+
+GAME 1335366010 fighting_spirit sky > icarus
+GAME 1335366011 jade sky < icarus
+GAME 1335366012 neo_electric_circuit sky > icarus
+GAME 1335366013 neo_ground_zero sky > icarus
+
+ROUND Finals
+
+GAME 1335538800 fighting_spirit sky > mong
+GAME 1335538800 jade sky > mong
+GAME 1335538800 neo_electric_circuit sky > mong
+GAME 1335538800 neo_ground_zero sky < mong
+GAME 1335538800 sniper_ridge sky < mong
+GAME 1335538800 neo_chain_reaction sky < mong
+GAME 1335538800 circuit_breaker sky < mong
