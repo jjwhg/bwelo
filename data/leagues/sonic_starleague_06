@@ -21,7 +21,7 @@ PLAYER mydream
 PLAYER myungsik
 PLAYER neo.g
 PLAYER olympus
-PLAYER progamer
+PLAYER minho
 PLAYER pusan
 PLAYER robbery
 PLAYER satang
@@ -101,12 +101,12 @@ GAME 1330009513 bloody_ridge mahell < mong
 GROUP F
 GAME 1330009620 circuit_breaker sky > bigtiger
 GAME 1330009621 bloody_ridge sky > bigtiger
-GAME 1330009623 circuit_breaker progamer < eagle
-GAME 1330009624 bloody_ridge progamer > eagle
-GAME 1330009625 fighting_spirit progamer > eagle
-GAME 1330009626 circuit_breaker sky > progamer
-GAME 1330009627 bloody_ridge sky < progamer
-GAME 1330009628 fighting_spirit sky < progamer
+GAME 1330009623 circuit_breaker minho < eagle
+GAME 1330009624 bloody_ridge minho > eagle
+GAME 1330009625 fighting_spirit minho > eagle
+GAME 1330009626 circuit_breaker sky > minho
+GAME 1330009627 bloody_ridge sky < minho
+GAME 1330009628 fighting_spirit sky < minho
 GAME 1330009629 circuit_breaker bigtiger > eagle
 GAME 1330009610 bloody_ridge bigtiger > eagle
 GAME 1330009612 circuit_breaker bigtiger < sky
@@ -189,16 +189,16 @@ GAME 1330010312 jade mong > zergman
 GAME 1330010313 electric_circuit mong > zergman
 
 GROUP D
-GAME 1330010400 jade progamer > smile
-GAME 1330010401 electric_circuit progamer > smile
+GAME 1330010400 jade minho > smile
+GAME 1330010401 electric_circuit minho > smile
 GAME 1330010404 jade sky > lyh
 GAME 1330010405 electric_circuit sky > lyh
-GAME 1330010407 jade sky > progamer
-GAME 1330010408 electric_circuit sky > progamer
+GAME 1330010407 jade sky > minho
+GAME 1330010408 electric_circuit sky > minho
 GAME 1330010410 jade smile < lyh
-GAME 1330010412 jade smile > progamer
-GAME 1330010413 electric_circuit smile < progamer
-GAME 1330010414 fighting_spirit smile > progamer
+GAME 1330010412 jade smile > minho
+GAME 1330010413 electric_circuit smile < minho
+GAME 1330010414 fighting_spirit smile > minho
 
 ROUND 8
 GAME 1330020000 electric_circuit hiya > mong
