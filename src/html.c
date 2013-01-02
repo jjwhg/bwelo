@@ -356,7 +356,7 @@ int player_page_table(struct game *game, void *args_uncast)
     game_time_int = game_time(game) + 32400;
 
     gmtime_r(&game_time_int, &game_time_tm);
-    strftime(game_time_str, LINE_MAX, "%d %b %Y", &game_time_tm);
+    strftime(game_time_str, LINE_MAX, "%Y-%m-%d", &game_time_tm);
 
     winner_key = game_winner_key(game);
     loser_key = game_loser_key(game);
