@@ -32,8 +32,28 @@
 #define PLAYER_DEFAULT_ELO 2000
 #endif
 
-#ifndef ELO_K
-#define ELO_K 10
+#ifndef ELO_K1
+#define ELO_K1 30
+#endif
+
+#ifndef ELO_K2
+#define ELO_K2 15
+#endif
+
+#ifndef ELO_K3
+#define ELO_K3 10
+#endif
+
+#ifndef ELO_K1_GAMES
+#define ELO_K1_GAMES 30
+#endif
+
+#ifndef ELO_K2_GAMES
+#define ELO_K2_GAMES 100
+#endif
+
+#ifndef ELO_PEAK_GAMES
+#define ELO_PEAK_GAMES 10
 #endif
 
 #ifndef LINE_MAX
@@ -98,7 +118,7 @@ struct player *player_read_file(void *c, const char *filename,
     p->race = RACE_UNKNOWN;
     p->games = game_list_new(p);
     p->elo = PLAYER_DEFAULT_ELO;
-    p->peak_elo = p->elo;
+    p->peak_elo = 0;
     p->wins = 0;
     p->losses = 0;
     p->key = NULL;
@@ -142,6 +162,8 @@ int player_win(struct player *winner, struct player *loser)
 {
     player_elo_t q_w, q_l;
     player_elo_t e_w, e_l;
+    int k_w, k_l;
+    int g_w, g_l;
 
     q_w = pow(10.0, winner->elo / 400.0);
     q_l = pow(10.0, loser->elo / 400.0);
@@ -149,11 +171,31 @@ int player_win(struct player *winner, struct player *loser)
     e_w = q_w / (q_w + q_l);
     e_l = q_l / (q_l + q_w);
 
-    winner->elo += ELO_K * (1.0 - e_w);
-    loser->elo += ELO_K * (0.0 - e_l);
+    g_w = winner->wins + winner->losses;
+    g_l = loser->wins + loser->losses;
 
-    if (winner->elo > winner->peak_elo)
-        winner->peak_elo = winner->elo;
+    k_w = ELO_K1;
+    if (g_w > ELO_K1_GAMES)
+        k_w = ELO_K2;
+    if (g_w > ELO_K2_GAMES)
+        k_w = ELO_K3;
+
+    k_l = ELO_K1;
+    if (g_l > ELO_K1_GAMES)
+        k_l = ELO_K2;
+    if (g_l > ELO_K2_GAMES)
+        k_l = ELO_K3;
+
+    winner->elo += k_w * (1.0 - e_w);
+    loser->elo += k_l * (0.0 - e_l);
+
+    if (g_w > ELO_PEAK_GAMES)
+        if (winner->elo > winner->peak_elo)
+            winner->peak_elo = winner->elo;
+
+    if (g_l > ELO_PEAK_GAMES)
+        if (loser->elo > loser->peak_elo)
+            loser->peak_elo = loser->elo;
 
     winner->wins++;
     loser->losses++;
