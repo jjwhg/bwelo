@@ -33,6 +33,7 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <talloc.h>
+#include <time.h>
 #include <unistd.h>
 
 #ifndef LINE_MAX
@@ -338,7 +339,9 @@ int player_page_table(struct game *game, void *args_uncast)
 {
     struct player_page_table_args *args;
     void *ctx;
-    const char *time;
+    time_t game_time_int;
+    struct tm game_time_tm;
+    char game_time_str[LINE_MAX];
     const char *winner_key, *loser_key;
     const char *opponent_key, *opponent_link;
     struct player *opponent;
@@ -349,7 +352,11 @@ int player_page_table(struct game *game, void *args_uncast)
     if (ctx == NULL)
         return 1;
 
-    time = talloc_asprintf(ctx, "%ld", game_time(game));
+    /* Convert the game time to KST */
+    game_time_int = game_time(game) + 32400;
+
+    gmtime_r(&game_time_int, &game_time_tm);
+    strftime(game_time_str, LINE_MAX, "%d %b %Y", &game_time_tm);
 
     winner_key = game_winner_key(game);
     loser_key = game_loser_key(game);
@@ -368,7 +375,7 @@ int player_page_table(struct game *game, void *args_uncast)
     result = (strcmp(winner_key, args->player_key) == 0)
         ? "<b>win</b>" : "loss";
 
-    table_row(ctx, args->file, game_league_name(game), time,
+    table_row(ctx, args->file, game_league_name(game), game_time_str,
               game_map_key(game), opponent_link, result, NULL);
 
     TALLOC_FREE(ctx);
