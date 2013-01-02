@@ -31,7 +31,7 @@ GAME 1356622746 fighting_spirit zelot < ample
 GAME 1356622747 neo_electric_circuit zelot < ample
 GAME 1356622749 fighting_spirit sky < ample
 GAME 1356622750 neo_electric_circuit sky > ample
-GAME 1356622750 neo_jade sky < ample
+GAME 1356622751 neo_jade sky < ample
 
 GROUP B
 GAME 1356713807 fighting_spirit shinee > tyson
@@ -46,3 +46,17 @@ GAME 1356713815 fighting_spirit shinee > snail
 GAME 1356713816 neo_electric_circuit shinee > snail
 GAME 1356713817 fighting_spirit mong > shinee
 GAME 1356713818 neo_electric_circuit mong > shinee
+
+GROUP C
+GAME 1357149100 fighting_spirit byhero > shuttle
+GAME 1357149101 neo_electric_circuit byhero > shuttle
+GAME 1357149110 fighting_spirit hiya < larva
+GAME 1357149111 neo_electric_circuit hiya < larva
+GAME 1357149120 fighting_spirit byhero < larva
+GAME 1357149121 neo_electric_circuit byhero < larva
+GAME 1357149130 fighting_spirit hiya < shuttle
+GAME 1357149131 neo_electric_circuit hiya > shuttle
+GAME 1357149132 neo_jade hiya < shuttle
+GAME 1357149140 fighting_spirit byhero > shuttle
+GAME 1357149141 neo_electric_circuit byhero < shuttle
+GAME 1357149142 neo_jade byhero > shuttle
