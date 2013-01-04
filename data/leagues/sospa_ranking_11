@@ -60,3 +60,16 @@ GAME 1357149132 neo_jade hiya < shuttle
 GAME 1357149140 fighting_spirit byhero > shuttle
 GAME 1357149141 neo_electric_circuit byhero < shuttle
 GAME 1357149142 neo_jade byhero > shuttle
+
+GROUP D
+GAME 1357234000 fighting_spirit movie > beast
+GAME 1357234001 neo_electric_circuit movie < beast
+GAME 1357234002 neo_jade movie > beast
+GAME 1357234010 fighting_spirit force > perfectman
+GAME 1357234011 neo_electric_circuit force > perfectman
+GAME 1357234020 fighting_spirit movie < force
+GAME 1357234021 neo_electric_circuit movie > force
+GAME 1357234022 neo_jade movie > force
+# PerfectMan was a WO loss, I think because of lag
+GAME 1357234040 fighting_spirit force < beast
+GAME 1357234041 neo_electric_circuit force < beast
