@@ -73,3 +73,24 @@ GAME 1357234022 neo_jade movie > force
 # PerfectMan was a WO loss, I think because of lag
 GAME 1357234040 fighting_spirit force < beast
 GAME 1357234041 neo_electric_circuit force < beast
+
+ROUND 8
+
+GAME 1357240000 fighting_spirit movie > tyson
+GAME 1357240001 neo_electric_circuit movie > tyson
+GAME 1357240002 neo_jade movie < tyson
+GAME 1357240003 fighting_spirit movie > tyson
+
+GAME 1357240010 fighting_spirit beast > byhero
+GAME 1357240011 neo_electric_circuit beast < byhero
+GAME 1357240012 neo_jade beast < byhero
+GAME 1357240013 fighting_spirit beast > byhero
+GAME 1357240014 new_sniper_ridge beast > byhero
+
+GAME 1357300000 fighting_spirit mong > ample
+GAME 1357300001 neo_electric_circuit mong > ample
+GAME 1357300002 neo_jade mong > ample
+
+GAME 1357300010 fighting_spirit sea > larva
+GAME 1357300011 neo_electric_circuit sea > larva
+GAME 1357300012 neo_jade sea > larva
