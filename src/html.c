@@ -91,7 +91,8 @@ struct map_page_table_args
 static int nftw_rm_rf(const char *path, const struct stat *sb,
                       int type, struct FTW *ftwbuf);
 
-static int write_header(void *pctx, FILE * file, const char *page_name);
+static int write_header(void *pctx, FILE * file, const char *page_name,
+                        bool links);
 static int write_footer(void *pctx, FILE * file);
 
 /* Creates a new table.  id is what ends up inside the ID field of the
@@ -180,7 +181,7 @@ int nftw_rm_rf(const char *path,
 }
 
 int write_header(void *pctx __attribute__ ((unused)),
-                 FILE * file, const char *page_name)
+                 FILE * file, const char *page_name, bool links)
 {
     fprintf(file, "<html>\n");
     fprintf(file, "<head>\n");
@@ -200,6 +201,16 @@ int write_header(void *pctx __attribute__ ((unused)),
 
     fprintf(file, "</head>\n");
     fprintf(file, "<body>\n");
+
+    if (links == true)
+    {
+        fprintf(file, "<small>\n");
+        fprintf(file, "  <a href=\"players.html\">Players</a>\n");
+        fprintf(file, "  <a href=\"maps.html\">Maps</a>\n");
+        fprintf(file, "  <br/>");
+        fprintf(file, "  <br/>");
+        fprintf(file, "</small>\n");
+    }
 
     return 0;
 }
@@ -269,7 +280,7 @@ int generate_index_page(void *pctx, const char *filename)
     if (file == NULL)
         return -1;
 
-    write_header(pctx, file, "Korean Amateur Database");
+    write_header(pctx, file, "Korean Amateur Database", false);
 
     fprintf(file, "<a href=\"players.html\">Player List</a><br/>\n");
     fprintf(file, "<a href=\"maps.html\">Map List</a><br/>\n");
@@ -291,7 +302,7 @@ int generate_player_list(void *pctx, const char *filename)
     if (ctx == NULL)
         goto failure;
 
-    write_header(ctx, file, "Player List");
+    write_header(ctx, file, "Player List", true);
 
     start_table(ctx, file, "player_list", 2, true,
                 "ID", "Race", "ELO", "ELO Peak", NULL);
@@ -365,7 +376,7 @@ int generate_player_page(struct player *player, void *args_uncast)
         goto failure;
 
     page_title = talloc_asprintf(ctx, "Player Page: %s\n", player_id(player));
-    write_header(ctx, file, page_title);
+    write_header(ctx, file, page_title, true);
 
     fprintf(file, "ID: <b>%s</b><br/>\n", player_id(player));
     fprintf(file, "Race: <b>%s</b><br/>\n", race_string(player_race(player)));
@@ -467,7 +478,7 @@ int generate_map_list(void *pctx, const char *filename)
     if (ctx == NULL)
         goto failure;
 
-    write_header(ctx, file, "Map List");
+    write_header(ctx, file, "Map List", true);
 
     start_table(ctx, file, "map_list", 0, false, "Name", NULL);
 
@@ -535,7 +546,7 @@ int generate_map_page(struct map *map, void *args_uncast)
         goto failure;
 
     page_title = talloc_asprintf(ctx, "Map Page: %s\n", map_name(map));
-    write_header(ctx, file, page_title);
+    write_header(ctx, file, page_title, true);
 
     fprintf(file, "Name: <b>%s</b><br/>\n", map_name(map));
     fprintf(file, "TvZ: <b>%d</b> - <b>%d</b> (%.02f%%)<br/>\n",
