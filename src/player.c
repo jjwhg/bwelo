@@ -208,27 +208,6 @@ int player_play(struct player *player, struct game *game)
     return game_list_add(player->games, game);
 }
 
-/***********************************************************************
- * Static Methods                                                      *
- ***********************************************************************/
-bool string_starts_with(const char *haystack, const char *needle)
-{
-    return (strncmp(haystack, needle, strlen(needle)) == 0);
-}
-
-const char *strip_front(const char *haystack, const char *needle)
-{
-    if (!string_starts_with(haystack, needle))
-        return false;
-
-    haystack += strlen(needle);
-
-    while (isspace(*haystack))
-        haystack++;
-
-    return haystack;
-}
-
 player_elo_t player_elo(struct player * player)
 {
     return player->elo;
@@ -273,4 +252,25 @@ int player_each_game(struct player *player,
                      int (*iter) (struct game *, void *), void *data)
 {
     return game_list_each(player->games, iter, data);
+}
+
+/***********************************************************************
+ * Static Methods                                                      *
+ ***********************************************************************/
+bool string_starts_with(const char *haystack, const char *needle)
+{
+    return (strncmp(haystack, needle, strlen(needle)) == 0);
+}
+
+const char *strip_front(const char *haystack, const char *needle)
+{
+    if (!string_starts_with(haystack, needle))
+        return false;
+
+    haystack += strlen(needle);
+
+    while (isspace(*haystack))
+        haystack++;
+
+    return haystack;
 }
