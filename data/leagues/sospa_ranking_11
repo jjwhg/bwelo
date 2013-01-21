@@ -94,3 +94,22 @@ GAME 1357300002 neo_jade mong > ample
 GAME 1357300010 fighting_spirit sea > larva
 GAME 1357300011 neo_electric_circuit sea > larva
 GAME 1357300012 neo_jade sea > larva
+
+ROUND Semifinals
+
+GAME 1357699400 fighting_spirit sea < movie
+GAME 1357699401 neo_electric_circuit sea > movie
+GAME 1357699402 neo_jade sea > movie
+GAME 1357699403 fighting_spirit sea < movie
+GAME 1357699404 new_sniper_ridge sea > movie
+
+GAME 1357699410 fighting_spirit beast < mong
+GAME 1357699411 neo_electric_circuit beast < mong
+GAME 1357699412 neo_jade beast < mong
+
+ROUND Finals
+
+GAME 1357899400 fighting_spirit sea > mong
+GAME 1357899401 neo_electric_circuit sea < mong
+GAME 1357899402 neo_jade sea > mong
+GAME 1357899403 fighting_spirit sea > mong
