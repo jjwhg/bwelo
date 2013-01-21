@@ -37,6 +37,15 @@ int map_play(struct map *map, struct game *game);
 /* Access some basic data about a map. */
 const char *map_name(struct map *map);
 const char *map_key(struct map *map);
+int map_zvp_wins(struct map *map);
+int map_pvt_wins(struct map *map);
+int map_tvz_wins(struct map *map);
+int map_zvp_losses(struct map *map);
+int map_pvt_losses(struct map *map);
+int map_tvz_losses(struct map *map);
+double map_zvp_winrate(struct map *map);
+double map_pvt_winrate(struct map *map);
+double map_tvz_winrate(struct map *map);
 
 /* Iterates through every game this map has played */
 int map_each_game(struct map *map,

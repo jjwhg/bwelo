@@ -538,6 +538,15 @@ int generate_map_page(struct map *map, void *args_uncast)
     write_header(ctx, file, page_title);
 
     fprintf(file, "Name: <b>%s</b><br/>\n", map_name(map));
+    fprintf(file, "TvZ: <b>%d</b> - <b>%d</b> (%.02f%%)<br/>\n",
+            map_tvz_wins(map), map_tvz_losses(map),
+            map_tvz_winrate(map) * 100);
+    fprintf(file, "ZvP: <b>%d</b> - <b>%d</b> (%.02f%%)<br/>\n",
+            map_zvp_wins(map), map_zvp_losses(map),
+            map_zvp_winrate(map) * 100);
+    fprintf(file, "PvT: <b>%d</b> - <b>%d</b> (%.02f%%)<br/>\n",
+            map_pvt_wins(map), map_pvt_losses(map),
+            map_pvt_winrate(map) * 100);
 
     start_table(ctx, file, "game_list", 1, true,
                 "Tournament", "Date", "Winner", "Loser", NULL);

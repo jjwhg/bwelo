@@ -21,6 +21,9 @@
 
 #include "map.h"
 #include "game_list.h"
+#include "global.h"
+#include "player_list.h"
+#include "race.h"
 
 #include <ctype.h>
 #include <stdbool.h>
@@ -45,6 +48,11 @@ struct map
 
     /* The key that uniquely identifies this map */
     const char *key;
+
+    /* Calculates the winrates for each game type. */
+    int zvp_wins, zvp_losses;
+    int pvt_wins, pvt_losses;
+    int tvz_wins, tvz_losses;
 };
 
 /***********************************************************************
@@ -77,6 +85,9 @@ struct map *map_read_file(void *c, const char *filename, const char *key)
     m->name = NULL;
     m->games = game_list_new(m);
     m->key = NULL;
+    m->zvp_wins = m->zvp_losses = 0;
+    m->pvt_wins = m->pvt_losses = 0;
+    m->tvz_wins = m->tvz_losses = 0;
 
     /* There should be a unique key, but apparently sometimes there's
      * not. */
@@ -116,6 +127,28 @@ struct map *map_read_file(void *c, const char *filename, const char *key)
 
 int map_play(struct map *map, struct game *game)
 {
+    struct player *winner, *loser;
+    enum race winner_race, loser_race;
+
+    winner = player_list_get(global_player_list, game_winner_key(game));
+    loser = player_list_get(global_player_list, game_loser_key(game));
+
+    winner_race = player_race(winner);
+    loser_race = player_race(loser);
+
+    if (winner_race == RACE_ZERG && loser_race == RACE_PROTOSS)
+        map->zvp_wins++;
+    if (winner_race == RACE_PROTOSS && loser_race == RACE_TERRAN)
+        map->pvt_wins++;
+    if (winner_race == RACE_TERRAN && loser_race == RACE_ZERG)
+        map->tvz_wins++;
+    if (loser_race == RACE_ZERG && winner_race == RACE_PROTOSS)
+        map->zvp_losses++;
+    if (loser_race == RACE_PROTOSS && winner_race == RACE_TERRAN)
+        map->pvt_losses++;
+    if (loser_race == RACE_TERRAN && winner_race == RACE_ZERG)
+        map->tvz_losses++;
+
     return game_list_add(map->games, game);
 }
 
@@ -127,6 +160,51 @@ const char *map_name(struct map *map)
 const char *map_key(struct map *map)
 {
     return map->key;
+}
+
+int map_zvp_wins(struct map *map)
+{
+    return map->zvp_wins;
+}
+
+int map_pvt_wins(struct map *map)
+{
+    return map->pvt_wins;
+}
+
+int map_tvz_wins(struct map *map)
+{
+    return map->tvz_wins;
+}
+
+int map_zvp_losses(struct map *map)
+{
+    return map->zvp_losses;
+}
+
+int map_pvt_losses(struct map *map)
+{
+    return map->pvt_losses;
+}
+
+int map_tvz_losses(struct map *map)
+{
+    return map->tvz_losses;
+}
+
+double map_zvp_winrate(struct map *map)
+{
+    return map->zvp_wins / (double)(map->zvp_wins + map->zvp_losses);
+}
+
+double map_pvt_winrate(struct map *map)
+{
+    return map->pvt_wins / (double)(map->pvt_wins + map->pvt_losses);
+}
+
+double map_tvz_winrate(struct map *map)
+{
+    return map->tvz_wins / (double)(map->tvz_wins + map->tvz_losses);
 }
 
 int map_each_game(struct map *map,
