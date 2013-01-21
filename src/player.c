@@ -254,6 +254,11 @@ int player_losses(struct player *player)
     return player->losses;
 }
 
+double player_winrate(struct player *player)
+{
+    return player->wins / (double)(player->wins + player->losses);
+}
+
 enum race player_race(struct player *player)
 {
     return player->race;

@@ -310,8 +310,9 @@ int generate_player_page(struct player *player, void *args_uncast)
     fprintf(file, "Race: <b>%s</b><br/>\n", race_string(player_race(player)));
     fprintf(file, "Elo: <b>%d</b><br/>\n", (int)player_elo(player));
     fprintf(file, "Elo Peak: <b>%d</b><br/>\n", (int)player_elo_peak(player));
-    fprintf(file, "Record: <b>%d</b> - <b>%d</b><br/>\n",
-            player_wins(player), player_losses(player));
+    fprintf(file, "Record: <b>%d</b> - <b>%d</b> (%.02f%%)<br/>\n",
+            player_wins(player), player_losses(player),
+            player_winrate(player) * 100);
 
     start_table(ctx, file, "game_list", 1, true,
                 "Tournament", "Date", "Map", "Opponent", "Result", NULL);

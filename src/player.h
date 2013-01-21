@@ -47,6 +47,7 @@ player_elo_t player_elo_peak(struct player *player);
 const char *player_id(struct player *player);
 int player_wins(struct player *player);
 int player_losses(struct player *player);
+double player_winrate(struct player *player);
 enum race player_race(struct player *player);
 const char *player_key(struct player *player);
 
