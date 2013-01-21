@@ -17,6 +17,11 @@ PLAYER sky
 PLAYER shuttle
 PLAYER tyson
 
+MAP fighting_spirit
+MAP neo_electric_circuit
+MAP neo_jade
+MAP new_sniper_ridge
+
 ROUND 16
 
 GROUP A

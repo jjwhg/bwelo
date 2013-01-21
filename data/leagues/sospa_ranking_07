@@ -17,6 +17,11 @@ PLAYER cola
 PLAYER larva
 PLAYER force
 
+MAP fighting_spirit
+MAP jade
+MAP circuit_breaker
+MAP sniper_ridge
+
 ROUND 32
 
 GROUP A

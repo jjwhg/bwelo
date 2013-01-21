@@ -33,6 +33,15 @@ PLAYER starcue
 PLAYER yoo
 PLAYER zergman
 
+MAP fighting_spirit
+MAP electric_circuit
+MAP jade
+MAP bloody_ridge
+MAP circuit_breaker
+MAP sniper_ridge
+MAP outlier
+MAP unknown
+
 ROUND 32
 
 GROUP A
@@ -42,7 +51,7 @@ GAME 1330009202 fighting_spirit casy < starcue
 GAME 1330009203 electric_circuit casy > starcue
 GAME 1330009204 jade casy > starcue
 GAME 1330009205 fighting_spirit candy < casy
-GAME 1330009206 electric_circiut candy < casy
+GAME 1330009206 electric_circuit candy < casy
 GAME 1330009207 fighting_spirit anytime > starcue
 GAME 1330009208 electric_circuit anytime > starcue
 GAME 1330009209 circuit_breaker anytime > candy
@@ -202,20 +211,20 @@ GAME 1330010414 fighting_spirit smile > minho
 
 ROUND 8
 GAME 1330020000 electric_circuit hiya > mong
-GAME 1330020001 fighting_siprit hiya > mong
+GAME 1330020001 fighting_spirit hiya > mong
 GAME 1330020002 jade hiya > mong
 GAME 1330020010 electric_circuit ample < smile
-GAME 1330020011 fighting_siprit ample > smile
+GAME 1330020011 fighting_spirit ample > smile
 GAME 1330020012 jade ample < smile
 GAME 1330020013 sniper_ridge ample > smile
 GAME 1330020014 outlier ample > smile
 GAME 1330020020 electric_circuit icarus < pusan
-GAME 1330020021 fighting_siprit icarus < pusan
+GAME 1330020021 fighting_spirit icarus < pusan
 GAME 1330020022 jade icarus > pusan
 GAME 1330020023 sniper_ridge icarus < pusan
 GAME 1330020024 outlier sky < anytime
 GAME 1330020030 electric_circuit sky > anytime
-GAME 1330020031 fighting_siprit sky > anytime
+GAME 1330020031 fighting_spirit sky > anytime
 GAME 1330020032 jade sky > anytime
 GAME 1330020033 sniper_ridge sky > anytime
 

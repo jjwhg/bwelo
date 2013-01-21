@@ -33,6 +33,12 @@ PLAYER ondol
 PLAYER zelot
 PLAYER mahell
 
+MAP neo_jade
+MAP neo_electric_circuit
+MAP fighting_spirit
+MAP wind_and_cloud
+MAP new_sniper_ridge
+
 ROUND 32
 
 GROUP A

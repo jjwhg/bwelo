@@ -66,6 +66,25 @@ struct player_page_table_args
     const char *player_key;
 };
 
+struct map_list_table_iter_args
+{
+    FILE *file;
+    void *pctx;
+};
+
+struct generate_map_page_args
+{
+    void *pctx;
+    const char *outdir;
+};
+
+struct map_page_table_args
+{
+    void *pctx;
+    FILE *file;
+    const char *map_key;
+};
+
 /***********************************************************************
  * Static Method Headers                                               *
  ***********************************************************************/
@@ -91,15 +110,23 @@ static int player_list_table_iter(struct player *player, void *args_uc);
 static int generate_player_page(struct player *player, void *args);
 static int player_page_table(struct game *game, void *args);
 
+static int generate_map_list(void *ctx, const char *filename);
+static int map_list_table_iter(struct map *map, void *args_uc);
+
+static int generate_map_page(struct map *map, void *args);
+static int map_page_table(struct game *game, void *args);
+
 /***********************************************************************
  * Extern Methods                                                      *
  ***********************************************************************/
 int html_generate(void *parent_context, const char *outdir)
 {
     void *ctx;
-    const char *player_list_filename;
     const char *index_filename;
+    const char *player_list_filename;
+    const char *map_list_filename;
     struct generate_player_page_args gpp_args;
+    struct generate_map_page_args gmp_args;
 
     ctx = talloc_new(parent_context);
     if (ctx == NULL)
@@ -122,6 +149,15 @@ int html_generate(void *parent_context, const char *outdir)
     gpp_args.pctx = ctx;
     gpp_args.outdir = outdir;
     player_list_each(global_player_list, generate_player_page, &gpp_args);
+
+    /* Generates the list of all maps */
+    map_list_filename = talloc_asprintf(ctx, "%s/maps.html", outdir);
+    generate_map_list(ctx, map_list_filename);
+
+    /* Generates a page for every player in the database */
+    gmp_args.pctx = ctx;
+    gmp_args.outdir = outdir;
+    map_list_each(global_map_list, generate_map_page, &gmp_args);
 
     TALLOC_FREE(ctx);
     return 0;
@@ -236,6 +272,7 @@ int generate_index_page(void *pctx, const char *filename)
     write_header(pctx, file, "Korean Amateur Database");
 
     fprintf(file, "<a href=\"players.html\">Player List</a><br/>\n");
+    fprintf(file, "<a href=\"maps.html\">Map List</a><br/>\n");
 
     write_footer(pctx, file);
 
@@ -371,6 +408,8 @@ int player_page_table(struct game *game, void *args_uncast)
     const char *opponent_key, *opponent_link;
     struct player *opponent;
     const char *result;
+    struct map *map;
+    const char *map_link;
 
     args = args_uncast;
     ctx = talloc_new(args->pctx);
@@ -400,8 +439,175 @@ int player_page_table(struct game *game, void *args_uncast)
     result = (strcmp(winner_key, args->player_key) == 0)
         ? "<b>win</b>" : "loss";
 
+    map = map_list_get(global_map_list, game_map_key(game));
+    map_link = talloc_asprintf(ctx, "<a href=\"map_%s.html\">%s</a>",
+                               map_key(map), map_name(map));
+
     table_row(ctx, args->file, game_league_name(game), game_time_str,
-              game_map_key(game), opponent_link, result, NULL);
+              map_link, opponent_link, result, NULL);
+
+    TALLOC_FREE(ctx);
+    return 0;
+
+  failure:
+    if (ctx != NULL)
+        TALLOC_FREE(ctx);
+    return 1;
+}
+
+int generate_map_list(void *pctx, const char *filename)
+{
+    FILE *file;
+    void *ctx;
+    struct map_list_table_iter_args mlti_args;
+
+    file = fopen(filename, "w");
+
+    ctx = talloc_new(pctx);
+    if (ctx == NULL)
+        goto failure;
+
+    write_header(ctx, file, "Map List");
+
+    start_table(ctx, file, "map_list", 0, false, "Name", NULL);
+
+    mlti_args.file = file;
+    mlti_args.pctx = ctx;
+    map_list_each(global_map_list, &map_list_table_iter, &mlti_args);
+
+    end_table(ctx, file);
+
+    write_footer(ctx, file);
+
+    fclose(file);
+    return 0;
+
+  failure:
+    fclose(file);
+    TALLOC_FREE(ctx);
+    return 1;
+}
+
+int map_list_table_iter(struct map *map, void *args_uc)
+{
+    struct map_list_table_iter_args *args;
+    const char *map_link;
+    void *ctx;
+
+    args = args_uc;
+    ctx = talloc_new(args->pctx);
+    if (ctx == NULL)
+        goto failure;
+
+    map_link = talloc_asprintf(ctx, "<a href=\"map_%s.html\">%s</a>",
+                               map_key(map), map_name(map));
+
+    table_row(ctx, args->file, map_link, NULL);
+
+    TALLOC_FREE(ctx);
+    return 0;
+
+  failure:
+    if (ctx != NULL)
+        TALLOC_FREE(ctx);
+    return 1;
+}
+
+int generate_map_page(struct map *map, void *args_uncast)
+{
+    struct generate_map_page_args *args;
+    void *ctx;
+    const char *file_name;
+    const char *page_title;
+    FILE *file;
+    struct map_page_table_args mpt_args;
+
+    args = args_uncast;
+    ctx = talloc_new(args->pctx);
+    if (ctx == NULL)
+        return 1;
+
+    file_name = talloc_asprintf(ctx, "%s/map_%s.html",
+                                args->outdir, map_key(map));
+
+    file = fopen(file_name, "w");
+    if (file == NULL)
+        goto failure;
+
+    page_title = talloc_asprintf(ctx, "Map Page: %s\n", map_name(map));
+    write_header(ctx, file, page_title);
+
+    fprintf(file, "Name: <b>%s</b><br/>\n", map_name(map));
+
+    start_table(ctx, file, "game_list", 1, true,
+                "Tournament", "Date", "Winner", "Loser", NULL);
+
+    mpt_args.pctx = ctx;
+    mpt_args.file = file;
+    mpt_args.map_key = map_key(map);
+    map_each_game(map, &map_page_table, &mpt_args);
+
+    end_table(ctx, file);
+
+    write_footer(ctx, file);
+
+    fclose(file);
+    TALLOC_FREE(ctx);
+    return 0;
+
+  failure:
+    if (ctx != NULL)
+        TALLOC_FREE(ctx);
+    return 1;
+}
+
+int map_page_table(struct game *game, void *args_uncast)
+{
+    struct map_page_table_args *args;
+    void *ctx;
+    time_t game_time_int;
+    struct tm game_time_tm;
+    char game_time_str[LINE_MAX];
+    const char *winner_key, *loser_key;
+    struct player *winner, *loser;
+    const char *winner_link, *loser_link;
+
+    args = args_uncast;
+    ctx = talloc_new(args->pctx);
+    if (ctx == NULL)
+        return 1;
+
+    /* Convert the game time to KST */
+    game_time_int = game_time(game) + 32400;
+
+    gmtime_r(&game_time_int, &game_time_tm);
+    strftime(game_time_str, LINE_MAX, "%Y-%m-%d", &game_time_tm);
+
+    winner_key = game_winner_key(game);
+    loser_key = game_loser_key(game);
+
+    winner = player_list_get(global_player_list, winner_key);
+    loser = player_list_get(global_player_list, loser_key);
+
+    if (winner == NULL || loser == NULL)
+        goto failure;
+
+    winner_link = talloc_asprintf(ctx,
+                                  "<a href=\"player_%s.html\">%s</a> (%s)",
+                                  winner_key, player_id(winner),
+                                  race_string(player_race(winner)));
+
+    loser_link = talloc_asprintf(ctx,
+                                 "<a href=\"player_%s.html\">%s</a> (%s)",
+                                 loser_key, player_id(loser),
+                                 race_string(player_race(loser)));
+
+    if (winner_link == NULL || loser_link == NULL)
+        goto failure;
+
+    table_row(ctx, args->file,
+              game_league_name(game),
+              game_time_str, winner_link, loser_link, NULL);
 
     TALLOC_FREE(ctx);
     return 0;

@@ -19,19 +19,27 @@
  * along with bwelo.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GLOBAL_H
-#define GLOBAL_H
+#ifndef MAP_H
+#define MAP_H
 
-#include "player_list.h"
-#include "map_list.h"
+/* Stores all the information known about a single map. */
+struct map;
 
-/* Stores a list of all the players that have ever played.  This
- * exists to avoid having to pass this player list to whole bunch of
- * methods. */
-extern struct player_list *global_player_list;
+#include "game.h"
 
-/* Stores a list of every map that's even had a game been played on
- * it. */
-extern struct map_list *global_map_list;
+/* Reads a map's information from a file, setting the remaining
+ * information to the default values. */
+struct map *map_read_file(void *c, const char *filename, const char *key);
+
+/* Adds a played game to the list of games this played has played */
+int map_play(struct map *map, struct game *game);
+
+/* Access some basic data about a map. */
+const char *map_name(struct map *map);
+const char *map_key(struct map *map);
+
+/* Iterates through every game this map has played */
+int map_each_game(struct map *map,
+                  int (*iter) (struct game *, void *), void *data);
 
 #endif

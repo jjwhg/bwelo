@@ -43,6 +43,9 @@ struct league
     /* Lists every player in this league. */
     struct player_list *players;
 
+    /* Lists every map played in this league. */
+    struct map_list *maps;
+
     /* Lists every game played during this league. */
     struct game_list *games;
 };
@@ -84,6 +87,7 @@ struct league *league_read_file(void *c, const char *filename)
     group = NULL;
     l->name = NULL;
     l->players = player_list_new(l, NULL);
+    l->maps = map_list_new(l, NULL);
     l->games = game_list_new(l);
 
     /* Reads the input file. */
@@ -113,7 +117,21 @@ struct league *league_read_file(void *c, const char *filename)
 
             k = talloc_strdup(tmp, b);
             if (player_list_copy(global_player_list, k, l->players) != 0)
+            {
+                fprintf(stderr, "Unable to open player '%s'\n", k);
                 goto error;
+            }
+        }
+        else if ((b = strip_front(buf, "MAP ")) != NULL)
+        {
+            const char *k;
+
+            k = talloc_strdup(tmp, b);
+            if (map_list_copy(global_map_list, k, l->maps) != 0)
+            {
+                fprintf(stderr, "Unable to open map '%s'\n", k);
+                goto error;
+            }
         }
         else if ((b = strip_front(buf, "ROUND ")) != NULL)
         {
@@ -127,6 +145,8 @@ struct league *league_read_file(void *c, const char *filename)
             struct game *game;
             const char *winner_key, *loser_key;
             struct player *winner, *loser;
+            const char *map_key;
+            struct map *map;
 
             game = game_parse(tmp, b, l->name, round, group);
             if (game == NULL)
@@ -144,6 +164,11 @@ struct league *league_read_file(void *c, const char *filename)
             winner = player_list_get(l->players, winner_key);
             loser = player_list_get(l->players, loser_key);
             if (winner == NULL || loser == NULL)
+                goto error;
+
+            map_key = game_map_key(game);
+            map = map_list_get(l->maps, map_key);
+            if (map == NULL)
                 goto error;
 
             game_list_add(l->games, game);

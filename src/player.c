@@ -122,6 +122,9 @@ struct player *player_read_file(void *c, const char *filename,
     p->wins = 0;
     p->losses = 0;
     p->key = NULL;
+
+    /* There should be a unique key, but apparently sometimes there's
+     * not. */
     if (key != NULL)
         p->key = talloc_reference(p, key);
 

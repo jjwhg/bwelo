@@ -60,6 +60,7 @@ int main(int argc, char **argv)
 
     /* Initialize the list of players, leagues, and games. */
     global_player_list = player_list_new(root_context, INDIR "/players");
+    global_map_list = map_list_new(root_context, INDIR "/maps");
     league_list = league_list_new(root_context, INDIR "/leagues");
 
     /* Generates each player's Elo rating */
@@ -92,6 +93,8 @@ int update_elo(struct game *game, void *uu __attribute__ ((unused)))
 {
     const char *winner_key, *loser_key;
     struct player *winner, *loser;
+    const char *map_key;
+    struct map *map;
 
     winner_key = game_winner_key(game);
     loser_key = game_loser_key(game);
@@ -108,6 +111,10 @@ int update_elo(struct game *game, void *uu __attribute__ ((unused)))
 
     player_play(winner, game);
     player_play(loser, game);
+
+    map_key = game_map_key(game);
+    map = map_list_get(global_map_list, map_key);
+    map_play(map, game);
 
     return 0;
 }

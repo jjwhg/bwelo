@@ -22,3 +22,4 @@
 #include <stddef.h>
 
 struct player_list *global_player_list = NULL;
+struct map_list *global_map_list = NULL;

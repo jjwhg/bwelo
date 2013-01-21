@@ -17,6 +17,12 @@ PLAYER beast
 PLAYER minho
 PLAYER ggaemo
 
+MAP fighting_spirit
+MAP new_bloody_ridge
+MAP jade
+MAP circuit_breaker
+MAP new_sniper_ridge
+
 ROUND Semifinals
 
 GAME 1343314800 fighting_spirit ample < beast

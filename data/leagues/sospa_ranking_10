@@ -9,6 +9,12 @@ PLAYER sky
 PLAYER shuttle
 PLAYER pusan
 
+MAP neo_jade
+MAP fighting_spirit
+MAP neo_electric_circuit
+MAP new_bloody_ridge
+MAP wind_and_cloud
+
 ROUND 8
 GAME 1353903001 neo_jade sky < larva
 GAME 1353903002 fighting_spirit sky < larva

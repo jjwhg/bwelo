@@ -17,6 +17,14 @@ PLAYER zergman
 PLAYER beast
 PLAYER minho
 
+MAP fighting_spirit
+MAP jade
+MAP neo_electric_circuit
+MAP neo_ground_zero
+MAP circuit_breaker
+MAP sniper_ridge
+MAP neo_chain_reaction
+
 ROUND 8
 
 GAME 1334934001 fighting_spirit icarus < sexy

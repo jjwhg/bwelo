@@ -17,6 +17,10 @@ PLAYER perry
 PLAYER sky
 PLAYER shuttle
 
+MAP python
+MAP la_mancha
+MAP match_point
+
 ROUND 16
 
 GROUP A
