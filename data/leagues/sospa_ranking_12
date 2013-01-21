@@ -1,0 +1,35 @@
+NAME 12th SOSPA Ranking Tournament
+
+PLAYER ample
+PLAYER hiya
+PLAYER mong
+PLAYER sea
+PLAYER shinee
+PLAYER terran
+PLAYER beast
+PLAYER cola
+PLAYER larva
+PLAYER byhero
+PLAYER snail
+PLAYER zelot
+PLAYER movie
+PLAYER perry
+PLAYER sky
+PLAYER shuttle
+
+ROUND 16
+
+GROUP A
+GAME 1358800000 python shinee > snail
+GAME 1358800001 la_mancha shinee < snail
+GAME 1358800002 match_point shinee > snail
+GAME 1358800010 python movie < beast
+GAME 1358800011 la_mancha movie < beast
+GAME 1358800020 python shinee > beast
+GAME 1358800021 la_mancha shinee < beast
+GAME 1358800022 match_point shinee < beast
+GAME 1358800030 python snail < movie
+GAME 1358800031 la_mancha snail > movie
+GAME 1358800032 match_point snail < movie
+GAME 1358800040 python shinee < movie
+GAME 1358800041 la_mancha shinee < movie
