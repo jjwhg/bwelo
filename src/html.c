@@ -83,6 +83,8 @@ static int start_table(void *pctx, FILE * file, const char *id,
 static int table_row(void *pctx, FILE * file, ...);
 static int end_table(void *pctx, FILE * file);
 
+static int generate_index_page(void *pctx, const char *filename);
+
 static int generate_player_list(void *ctx, const char *filename);
 static int player_list_table_iter(struct player *player, void *args_uc);
 
@@ -96,6 +98,7 @@ int html_generate(void *parent_context, const char *outdir)
 {
     void *ctx;
     const char *player_list_filename;
+    const char *index_filename;
     struct generate_player_page_args gpp_args;
 
     ctx = talloc_new(parent_context);
@@ -106,6 +109,10 @@ int html_generate(void *parent_context, const char *outdir)
      * output directory */
     nftw(outdir, &nftw_rm_rf, 16, FTW_DEPTH);
     mkdir(outdir, 0777);
+
+    /* The index page is very simple. */
+    index_filename = talloc_asprintf(ctx, "%s/index.html", outdir);
+    generate_index_page(ctx, index_filename);
 
     /* Generates the list of all players */
     player_list_filename = talloc_asprintf(ctx, "%s/players.html", outdir);
@@ -215,6 +222,23 @@ int table_row(void *pctx __attribute__ ((unused)), FILE * file, ...)
 int end_table(void *pctx __attribute__ ((unused)), FILE * file)
 {
     fprintf(file, "</table>\n");
+    return 0;
+}
+
+int generate_index_page(void *pctx, const char *filename)
+{
+    FILE *file;
+
+    file = fopen(filename, "w");
+    if (file == NULL)
+        return -1;
+
+    write_header(pctx, file, "Korean Amateur Database");
+
+    fprintf(file, "<a href=\"players.html\">Player List</a><br/>\n");
+
+    write_footer(pctx, file);
+
     return 0;
 }
 
