@@ -37,3 +37,18 @@ GAME 1358800031 la_mancha snail > movie
 GAME 1358800032 match_point snail < movie
 GAME 1358800040 python shinee < movie
 GAME 1358800041 la_mancha shinee < movie
+
+GROUP B
+GAME 1358864000 python shuttle > ample
+GAME 1358864001 la_mancha shuttle > ample
+GAME 1358864010 python sea < byhero
+GAME 1358864011 la_mancha sea > byhero
+GAME 1358864012 match_point sea < byhero
+GAME 1358864020 python shuttle < byhero
+GAME 1358864021 la_mancha shuttle < byhero
+GAME 1358864030 python ample > sea
+GAME 1358864031 la_mancha ample < sea
+GAME 1358864032 match_point sea > ample
+GAME 1358864040 python shuttle < sea
+GAME 1358864041 la_mancha shuttle > sea
+GAME 1358864042 match_point shuttle > sea
