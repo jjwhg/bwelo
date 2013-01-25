@@ -20,6 +20,7 @@ PLAYER shuttle
 MAP python
 MAP la_mancha
 MAP match_point
+MAP fighting_spirit
 
 ROUND 16
 
@@ -83,3 +84,14 @@ GAME 1359028832 match_point larva < cola
 GAME 1359028840 python hiya < cola
 GAME 1359028841 la_mancha hiya > cola
 GAME 1359028842 match_point hiya > cola
+
+ROUND 8
+
+GAME 1359120400 python hiya > mong
+GAME 1359120401 la_mancha hiya > mong
+GAME 1359120402 match_point hiya > mong
+
+GAME 1359120612 python beast < sky
+GAME 1359121291 la_mancha beast > sky
+GAME 1359123471 match_point beast > sky
+GAME 1359123492 fighting_spirit beast > sky
