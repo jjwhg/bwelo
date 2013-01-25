@@ -52,3 +52,34 @@ GAME 1358864032 match_point sea > ample
 GAME 1358864040 python shuttle < sea
 GAME 1358864041 la_mancha shuttle > sea
 GAME 1358864042 match_point shuttle > sea
+
+GROUP C
+GAME 1358942400 python mong > zelot
+GAME 1358942401 la_mancha mong < zelot
+GAME 1358942402 match_point mong > zelot
+GAME 1358942410 python terran > perry
+GAME 1358942411 la_mancha terran > perry
+GAME 1358942420 python mong < terran
+GAME 1358942421 la_mancha mong > terran
+GAME 1358942422 match_point mong > terran
+GAME 1358942430 python zelot < perry
+GAME 1358942431 la_mancha zelot > perry
+GAME 1358942432 match_point zelot < perry
+GAME 1358942440 python terran < perry
+GAME 1358942441 la_mancha terran < perry
+
+GROUP D
+GAME 1359028800 python hiya > larva
+GAME 1359028801 la_mancha hiya > larva
+GAME 1359028810 python cola < sky
+GAME 1359028811 la_mancha cola > sky
+GAME 1359028812 match_point cola < sky
+GAME 1359028820 python hiya > sky
+GAME 1359028821 la_mancha hiya < sky
+GAME 1359028822 match_point hiya < sky
+GAME 1359028830 python larva > cola
+GAME 1359028831 la_mancha larva < cola
+GAME 1359028832 match_point larva < cola
+GAME 1359028840 python hiya < cola
+GAME 1359028841 la_mancha hiya > cola
+GAME 1359028842 match_point hiya > cola
