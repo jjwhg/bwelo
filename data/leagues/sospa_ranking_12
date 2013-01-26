@@ -21,6 +21,7 @@ MAP python
 MAP la_mancha
 MAP match_point
 MAP fighting_spirit
+MAP electric_circuit
 
 ROUND 16
 
@@ -95,3 +96,14 @@ GAME 1359120612 python beast < sky
 GAME 1359121291 la_mancha beast > sky
 GAME 1359123471 match_point beast > sky
 GAME 1359123492 fighting_spirit beast > sky
+
+GAME 1359230000 python byhero < perry
+GAME 1359230001 la_mancha byhero > perry
+GAME 1359230002 match_point byhero > perry
+GAME 1359230003 fighting_spirit byhero > perry
+
+GAME 1359230010 python movie > shuttle
+GAME 1359230011 la_mancha movie < shuttle
+GAME 1359230012 match_point movie < shuttle
+GAME 1359230013 fighting_spirit movie > shuttle
+GAME 1359230014 electric_circuit movie > shuttle
