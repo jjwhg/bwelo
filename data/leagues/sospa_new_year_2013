@@ -1,0 +1,47 @@
+NAME New Years Super Match
+
+PLAYER larva
+PLAYER terran
+PLAYER sea
+PLAYER byhero
+PLAYER mong
+PLAYER shuttle
+PLAYER beast
+PLAYER movie
+
+MAP match_point
+MAP neo_jade
+MAP fighting_spirit
+MAP neo_electric_circuit
+
+ROUND 8
+
+GAME 1360165001 match_point terran > larva
+GAME 1360165002 fighting_spirit terran < larva
+GAME 1360165003 neo_electric_circuit terran < larva
+GAME 1360165004 neo_jade terran < larva
+
+GAME 1360165011 match_point sea > byhero
+GAME 1360165012 fighting_spirit sea > byhero
+GAME 1360165013 neo_electric_circuit sea > byhero
+
+GAME 1360165021 match_point mong < shuttle
+GAME 1360165022 fighting_spirit mong > shuttle
+GAME 1360165023 neo_electric_circuit mong < shuttle
+GAME 1360165024 neo_jade mong < shuttle
+
+GAME 1360165031 match_point beast < movie
+GAME 1360165032 fighting_spirit beast < movie
+GAME 1360165033 neo_electric_circuit beast < movie
+
+ROUND Semifinals
+
+GAME 1360430000 match_point shuttle > larva
+GAME 1360430001 neo_electric_circuit shuttle < larva
+GAME 1360430002 fighting_spirit shuttle > larva
+GAME 1360430003 neo_jade shuttle > larva
+
+GAME 1360430010 match_point sea < movie
+GAME 1360430011 fighting_spirit sea < movie
+GAME 1360430012 neo_electric_circuit sea > movie
+GAME 1360430013 neo_jade sea < movie
