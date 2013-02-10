@@ -21,7 +21,7 @@ MAP python
 MAP la_mancha
 MAP match_point
 MAP fighting_spirit
-MAP electric_circuit
+MAP neo_electric_circuit
 
 ROUND 16
 
@@ -106,7 +106,7 @@ GAME 1359230010 python movie > shuttle
 GAME 1359230011 la_mancha movie < shuttle
 GAME 1359230012 match_point movie < shuttle
 GAME 1359230013 fighting_spirit movie > shuttle
-GAME 1359230014 electric_circuit movie > shuttle
+GAME 1359230014 neo_electric_circuit movie > shuttle
 
 ROUND Semifinals
 
@@ -114,13 +114,13 @@ GAME 1359697000 python byhero < beast
 GAME 1359697001 la_mancha byhero > beast
 GAME 1359697002 match_point byhero < beast
 GAME 1359697003 fighting_spirit byhero > beast
-GAME 1359697004 electric_circuit byhero < beast
+GAME 1359697004 neo_electric_circuit byhero < beast
 
 GAME 1359697010 python hiya < movie
 GAME 1359697011 la_mancha hiya < movie
 GAME 1359697012 match_point hiya > movie
 GAME 1359697013 fighting_spirit hiya > movie
-GAME 1359697014 electric_circuit hiya < movie
+GAME 1359697014 neo_electric_circuit hiya < movie
 
 ROUND Finals
 
@@ -128,4 +128,4 @@ GAME 1359697020 python beast > movie
 GAME 1359697021 la_mancha beast < movie
 GAME 1359697022 match_point beast < movie
 GAME 1359697023 fighting_spirit beast < movie
-GAME 1359697024 electric_circuit beast < movie
+GAME 1359697024 neo_electric_circuit beast < movie
