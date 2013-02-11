@@ -45,3 +45,17 @@ GAME 1360430010 match_point sea < movie
 GAME 1360430011 fighting_spirit sea < movie
 GAME 1360430012 neo_electric_circuit sea > movie
 GAME 1360430013 neo_jade sea < movie
+
+ROUND Third Place
+
+GAME 1360602000 match_point sea < larva
+GAME 1360602001 fighting_spirit sea > larva
+GAME 1360602002 neo_electric_circuit sea < larva
+GAME 1360602003 neo_jade sea > larva
+GAME 1360602004 fighting_spirit sea > larva
+
+ROUND Finals
+
+GAME 1360602010 match_point shuttle > movie
+GAME 1360602011 fighting_spirit shuttle > movie
+GAME 1360602012 neo_electric_circuit shuttle > movie
