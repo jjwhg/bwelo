@@ -1,0 +1,71 @@
+NAME Sonic's BJ Starleague Season 8 (Ranking Matches)
+
+ROUND 28
+
+PLAYER sea
+PLAYER tyson
+PLAYER beast
+PLAYER sexy
+PLAYER iris
+PLAYER zergman
+PLAYER ample
+PLAYER shuttle
+PLAYER perfectman
+PLAYER soma
+PLAYER force
+PLAYER kkong
+PLAYER shinee
+PLAYER byhero
+PLAYER zelot
+PLAYER onicle
+PLAYER hiya
+PLAYER lazy
+PLAYER terran
+PLAYER snail
+
+MAP match_point
+MAP fighting_spirit
+MAP neo_electric_circuit
+
+ROUND 28
+
+GROUP A
+
+GAME 1360939100 match_point sea > tyson
+GAME 1360939101 fighting_spirit beast < sexy
+GAME 1360939102 neo_electric_circuit sexy > tyson
+GAME 1360939103 match_point sea < beast
+GAME 1360939104 fighting_spirit sexy > sea
+GAME 1360939105 neo_electric_circuit beast < tyson
+
+GROUP B
+
+GAME 1360939110 match_point shuttle > zergman
+
+GROUP C
+
+GAME 1360939120 match_point perfectman > force
+GAME 1360939121 fighting_spirit force > kkong
+GAME 1360939122 neo_electric_circuit perfectman > kkong
+
+GROUP D
+
+GAME 1361039100 match_point shinee > byhero
+GAME 1361039101 fighting_spirit shinee > zelot
+GAME 1361039102 neo_electric_circuit shinee > onicle
+GAME 1361039103 match_point byhero > onicle
+GAME 1361039104 fighting_spirit byhero < zelot
+GAME 1361039105 neo_electric_circuit zelot > onicle
+
+GROUP E
+
+GAME 1361039110 match_point hiya < lazy
+GAME 1361039111 fighting_spirit lazy > terran
+GAME 1361039112 neo_electric_circuit lazy > snail
+GAME 1361039113 match_point hiya > snail
+GAME 1361039114 fighting_spirit hiya > terran
+
+
+
+
+
