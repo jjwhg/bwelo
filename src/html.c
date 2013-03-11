@@ -41,7 +41,7 @@
 #endif
 
 #ifndef JS_TABLE_SORT_URL
-#define JS_TABLE_SORT_URL "http://www.frequency-decoder.com/demo/table-sort-revisited/js/tablesort.min.js"
+#define JS_TABLE_SORT_URL "http://web.archive.org/web/20130118015748/http://www.frequency-decoder.com/demo/table-sort-revisited/js/tablesort.min.js"
 #endif
 
 /***********************************************************************
