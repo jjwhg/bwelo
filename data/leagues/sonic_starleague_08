@@ -1,0 +1,105 @@
+NAME itemBay 8th SSL
+
+PLAYER onicle
+PLAYER lucifer
+PLAYER hint
+PLAYER lazy
+PLAYER movie
+PLAYER perfectman
+PLAYER perry
+PLAYER pusan
+PLAYER shuttle
+PLAYER -_-
+PLAYER tyson
+PLAYER sense
+PLAYER ample
+PLAYER iris
+PLAYER hiya
+PLAYER donggle
+PLAYER kkong
+PLAYER shinee
+PLAYER mong
+PLAYER sea
+PLAYER sexy
+PLAYER ssak
+PLAYER spire
+PLAYER beast
+PLAYER cola
+PLAYER zelot
+PLAYER byhero
+PLAYER killer
+PLAYER larva
+PLAYER pose
+PLAYER feat
+PLAYER ddugi
+
+MAP neo_jade
+MAP neo_electric_circuit
+MAP fighting_spirit
+MAP neo_wind_and_cloud
+MAP andromeda
+
+ROUND 32
+
+GROUP A
+
+GAME 1362067200 fighting_spirit killer > onicle
+
+GAME 1362067201 fighting_spirit hint > lucifer
+
+GAME 1362067202 neo_wind_and_cloud killer > hint
+GAME 1362067203 fighting_spirit killer > hint
+
+GAME 1362067205 neo_wind_and_cloud onicle < lucifer
+GAME 1362067206 fighting_spirit onicle > lucifer
+GAME 1362067207 andromeda onicle < lucifer
+
+GAME 1362067208 neo_wind_and_cloud hint < lucifer
+GAME 1362067209 fighting_spirit hint < lucifer
+
+GROUP B
+
+GAME 1362145600 fighting_spirit larva > -_-
+
+GAME 1362145601 fighting_spirit pose < kkong
+
+GAME 1362145602 neo_wind_and_cloud kkong < larva
+GAME 1362145603 fighting_spirit kkong < larva
+
+GAME 1362145605 neo_wind_and_cloud pose < -_-
+GAME 1362145606 fighting_spirit pose < -_-
+
+GAME 1362145608 neo_wind_and_cloud kkong > -_-
+GAME 1362145609 fighting_spirit kkong > -_-
+
+GROUP C
+
+GAME 1362153600 fighting_spirit ssak > sea
+
+GAME 1362153601 fighting_spirit cola > hiya
+
+GAME 1362153602 neo_wind_and_cloud ssak > cola
+GAME 1362153603 fighting_spirit ssak > cola
+
+GAME 1362153605 neo_wind_and_cloud sea < hiya
+GAME 1362153606 fighting_spirit sea > hiya
+GAME 1362153607 andromeda sea < hiya
+
+GAME 1362153608 neo_wind_and_cloud cola > hiya
+GAME 1362153609 fighting_spirit cola < hiya
+GAME 1362153610 andromeda cola < hiya
+
+GROUP D
+
+GAME 1362758400 fighting_spirit pusan < ample
+
+GAME 1362758401 fighting_spirit sense > ddugi
+
+GAME 1362758402 neo_wind_and_cloud ample > sense
+GAME 1362758403 fighting_spirit ample > sense
+
+GAME 1362758405 neo_wind_and_cloud pusan > ddugi
+GAME 1362758406 fighting_spirit pusan > ddugi
+
+GAME 1362758408 neo_wind_and_cloud sense < pusan
+GAME 1362758409 fighting_spirit sense < pusan
