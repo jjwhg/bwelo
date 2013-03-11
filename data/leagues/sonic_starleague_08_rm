@@ -22,6 +22,14 @@ PLAYER hiya
 PLAYER lazy
 PLAYER terran
 PLAYER snail
+PLAYER movie
+PLAYER sonkwon
+PLAYER hejy
+PLAYER cola
+PLAYER mong
+PLAYER spire
+PLAYER perry
+PLAYER hint
 
 MAP match_point
 MAP fighting_spirit
@@ -65,7 +73,27 @@ GAME 1361039112 neo_electric_circuit lazy > snail
 GAME 1361039113 match_point hiya > snail
 GAME 1361039114 fighting_spirit hiya > terran
 
+GROUP F
 
+GAME 1361039200 match_point movie > sonkwon
+GAME 1361039201 fighting_spirit movie > hejy
+GAME 1361039202 neo_electric_circuit movie > cola
+GAME 1361039203 match_point cola > sonkwon
+GAME 1361039204 fighting_spirit cola < hejy
+GAME 1361039205 neo_electric_circuit sonkwon < hejy
 
+GROUP G
+
+GAME 1361039210 match_point mong > spire
+GAME 1361039211 fighting_spirit mong > perry
+GAME 1361039212 neo_electric_circuit mong > hint
+GAME 1361039213 match_point hint > spire
+GAME 1361039214 fighting_spirit hint > perry
+
+ROUND Finals
+
+GAME 1361039300 match_point perfectman > lazy
+GAME 1361039301 fighting_spirit sexy < mong
+GAME 1361039302 match_point shuttle < movie
 
 
